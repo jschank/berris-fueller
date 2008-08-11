@@ -1,4 +1,6 @@
 class VehiclesController < ApplicationController
+  active_scaffold
+  
   # GET /vehicles
   # GET /vehicles.xml
   def index
