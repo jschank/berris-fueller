@@ -1,0 +1,35 @@
+<% title 'New Fill Up' %>
+
+<% form_for(:fillup, @fillup, :url => {:action => 'create'} ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :odometer %><br />
+    <%= f.text_field :odometer %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :gallons %><br />
+    <%= f.text_field :gallons %>
+  </p>
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :grade %><br />
+    <%= f.text_field :grade %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', vehicles_path %>

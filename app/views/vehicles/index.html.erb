@@ -19,6 +19,7 @@
     <td><%= link_to 'Show', vehicle %></td>
     <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
     <td><%= link_to 'Destroy', vehicle, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Refuel', new_vehicle_fill_up_path(vehicle) %></td>
   </tr>
 <% end %>
 </table>
