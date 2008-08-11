@@ -1,0 +1,33 @@
+<p>
+  <b>Brand:</b>
+  <%=h @fill_up.brand %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%=h @fill_up.grade %>
+</p>
+
+<p>
+  <b>Odometer:</b>
+  <%=h @fill_up.odometer %>
+</p>
+
+<p>
+  <b>Cost in cents:</b>
+  <%=h @fill_up.cost_in_cents %>
+</p>
+
+<p>
+  <b>Gallons:</b>
+  <%=h @fill_up.gallons %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @fill_up.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_fill_up_path(@fill_up) %> |
+<%= link_to 'Back', fill_ups_path %>
