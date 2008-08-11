@@ -1,19 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  vehicle: new_car
-  brand: BrandOne
-  grade: 83
-  odometer: 1000
-  cost_in_cents: 400
-  gallons: 1
+  vehicle_id: 1
   date: 2008-08-11
+  odometer: 1
+  cost_in_cents: 1
+  gallons: 1.5
+  brand: MyString
+  grade: 1
 
 two:
-  vehicle: new_car
-  brand: BrandTwo
-  grade: 93
-  odometer: 2000
-  cost_in_cents: 500
-  gallons: 1
-  date: 2008-08-12
+  vehicle_id: 1
+  date: 2008-08-11
+  odometer: 1
+  cost_in_cents: 1
+  gallons: 1.5
+  brand: MyString
+  grade: 1

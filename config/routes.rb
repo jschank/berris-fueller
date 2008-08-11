@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :fill_ups
-
-  map.resources :vehicles
+  map.resources :vehicles, :has_many => :fill_ups
 
   # The priority is based upon order of creation: first created -> highest priority.
 

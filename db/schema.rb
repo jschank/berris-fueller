@@ -9,15 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080811065307) do
+ActiveRecord::Schema.define(:version => 20080811181240) do
 
   create_table "fill_ups", :force => true do |t|
     t.integer  "vehicle_id"
-    t.date     "date",                         :null => false
-    t.integer  "odometer",      :default => 0, :null => false
-    t.integer  "cost_in_cents",                :null => false
-    t.float    "gallons",                      :null => false
-    t.string   "brand"
+    t.date     "date",                                         :null => false
+    t.integer  "odometer",                    :default => 0,   :null => false
+    t.integer  "cost_in_cents",                                :null => false
+    t.float    "gallons",                     :default => 0.0, :null => false
+    t.string   "brand",         :limit => 64
     t.integer  "grade"
     t.datetime "created_at"
     t.datetime "updated_at"
