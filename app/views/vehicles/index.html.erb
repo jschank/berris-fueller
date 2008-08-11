@@ -1,5 +1,9 @@
 <% title "Vehicles" %>
 
+<% content_for :navigation do %>
+	<li><%= link_to 'New vehicle', new_vehicle_path %></li>
+<% end %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -26,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New vehicle', new_vehicle_path %>
+

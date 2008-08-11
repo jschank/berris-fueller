@@ -1,8 +1,9 @@
-<p>
-  <b>Name:</b>
-  <%=h @vehicle.name %>
-</p>
+<% title @vehicle.name %>
 
+<% content_for :navigation do %>
+	<li><%= link_to 'Edit', edit_vehicle_path(@vehicle) %></li>
+	<li><%= link_to 'Back', vehicles_path %></li>
+<% end %>
 <p>
   <b>Make:</b>
   <%=h @vehicle.make %>
@@ -24,5 +25,3 @@
 </p>
 
 
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>

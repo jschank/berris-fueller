@@ -96,8 +96,41 @@ background-color: transparent;
 color: #fff;
 }
 
-#content_wrapper {
+#content_wrapper 
+{
   background: transparent url('../img/content_bg.jpg') top left no-repeat;
+}
+
+#left_side table
+{
+	margin-bottom: 2em;
+  font-family: verdana;
+  font-size:11px;
+  line-height:16px;
+}
+
+#left_side table th
+{
+	text-align: left;
+	font-weight: bold;
+	padding: 0.5em;
+}
+
+#left_side table td
+{
+	padding: 0.5em;
+}
+
+#left_side table tr.rowA
+{
+	background-color: #DFBD99;
+	color: inherit;
+}
+
+#left_side table tr.rowB
+{
+	background-color: #EFDCC2;
+	color: inherit;
 }
 
 #left_side {
