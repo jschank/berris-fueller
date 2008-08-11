@@ -10,14 +10,14 @@ describe "/fill_ups/index.html.erb" do
         :grade => "1",
         :odometer => "1",
         :cost_in_cents => "1",
-        :gallons => "1.5",
+        :gallons => "1.5"
       ),
       stub_model(FillUp,
         :brand => "value for brand",
         :grade => "1",
         :odometer => "1",
         :cost_in_cents => "1",
-        :gallons => "1.5",
+        :gallons => "1.5"
       )
     ]
   end

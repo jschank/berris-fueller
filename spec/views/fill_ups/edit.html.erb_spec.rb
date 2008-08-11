@@ -10,7 +10,7 @@ describe "/fill_ups/edit.html.erb" do
       :grade => "1",
       :odometer => "1",
       :cost_in_cents => "1",
-      :gallons => "1.5",
+      :gallons => "1.5"
     )
   end
 
