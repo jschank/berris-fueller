@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+old_car:
+  name: MyOldCar
+  make: Ford
+  model: Model T
+  year: 1908
+  miles: 1000000
+
+new_car:
+  name: MyNewCar
+  make: Toyota
+  model: Prius
+  year: 2008
+  miles: 0

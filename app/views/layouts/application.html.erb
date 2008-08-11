@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Berris Fueller</title>
+		<%= stylesheet_link_tag 'naturalist/css/style' %>
+		<%= javascript_include_tag :defaults  %>
+		<%= yield(:head) %>
+	</head>
+	<body>
+		<div id='page_wrapper'>
+			<div id='page_header'>
+				<h1>Berris Fueller</h1>
+				<h2><%= h yield(:title) %></h2>
+			</div>
+
+			<div id='menu_bar'>
+
+			<div id="navcontainer">
+			<ul id="navlist">
+			<!-- <li id="active"><a href="#" id="current">Item one</a></li> -->
+			<li><%= link_to "Home", vehicles_path %></li>
+			<%= yield(:navigation) %>
+			</ul>
+			</div>
+
+			</div>
+			
+			<div id='content_wrapper'>
+				<div class='spacer'></div>
+				<div id='left_side'>
+					<%= yield %>
+				</div>
+
+				<!-- <div id='right_side'>
+
+				<h3>Right Side</h3>
+				<p>
+				<a href='#'>Lorem ipsum</a> ferri volumus et his. Pri vitae tritani corrumpit 
+				an. In fabulas adipisci accommodare quo, tibique epicurei cu 
+				mel, habeo adhuc <a href='#'>scripta</a> nam at. <a href='#'>Aliquam dissentias</a> 
+				te nec, his ei rebum prodesset. Eam cibo tation ceteros ut, cum solet accumsan 
+				ad. An per commune posidonium, ea est populo dicunt.
+				</p>
+
+				<h3>Right Side</h3>
+				<p>
+				Ea vis verear omittam appetere. <a href='#'>Laudem accusam takimata</a> ea est, 
+				eu delenit eligendi mediocrem mei. Mea at <a href='#'>malorum</a> invenire 
+				urbanitas. Ei sea novum petentium deseruisse. Vero delectus efficiantur ei nec, 
+				amet tollit consetetur eos ut. Ea vis verear omittam appetere. <a href='#'>
+				Laudem accusam takimata</a>
+				</p>
+
+				</div> -->
+
+				<div class='spacer'></div>
+
+			</div>
+
+			<div id='page_footer'>
+				<p>
+				Template provided by <a href="http://www.designsbydarren.com/" target="new">Designs by Darren</a>. 
+				Released under a <a href="http://creativecommons.org/licenses/by-nc/2.5/" target="new">Creative Commons License</a>.<br />
+				<a href="http://validator.w3.org/check?uri=referer" target="new">Valid XHTML 1.0 Transitional</a>
+				</p>
+			</div>
+
+		</div>
+	</body>
+</html>

@@ -9,6 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20080811051638) do
+
+  create_table "vehicles", :force => true do |t|
+    t.string   "name",       :limit => 64,                :null => false
+    t.string   "make",       :limit => 32
+    t.string   "model",      :limit => 32
+    t.integer  "year"
+    t.integer  "miles",                    :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
