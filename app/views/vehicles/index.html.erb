@@ -11,6 +11,7 @@
     <th>Model</th>
     <th>Year</th>
     <th>Miles</th>
+		<th>Actions</th>
   </tr>
 
 <% for vehicle in @vehicles %>
@@ -19,15 +20,12 @@
     <td><%=h vehicle.make %></td>
     <td><%=h vehicle.model %></td>
     <td><%=h vehicle.year %></td>
-    <td><%=h vehicle.miles %></td>
-    <td><%= link_to 'Show', vehicle %></td>
-    <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-    <td><%= link_to 'Destroy', vehicle, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Refuel', new_vehicle_fill_up_path(vehicle) %></td>
+    <td><%=h vehicle.current_miles %></td>
+    <td><%= link_to 'Show', vehicle %>&nbsp;
+    <%= link_to 'Edit', edit_vehicle_path(vehicle) %>&nbsp;
+    <%= link_to 'Destroy', vehicle, :confirm => 'Are you sure?', :method => :delete %>&nbsp;
+    <%= link_to 'Refuel', new_vehicle_fill_up_path(vehicle) %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
 
