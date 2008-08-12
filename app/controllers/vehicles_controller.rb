@@ -16,6 +16,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1.xml
   def show
     @vehicle = Vehicle.find(params[:id])
+    @vehicle.fill_ups.sort! { |a,b| a.odometer <=> b.odometer}
 
     respond_to do |format|
       format.html # show.html.erb
