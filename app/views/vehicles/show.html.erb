@@ -23,10 +23,43 @@
   <b>Original Miles:</b>
   <%=h @vehicle.miles %>
 </p>
+
+<% if @vehicle.current_miles != @vehicle.miles %>
 <p>
   <b>Current Miles:</b>
   <%= @vehicle.current_miles %>
 </p>
+<% end %>
+
+<% if @vehicle.fill_ups.count > 0 %>
+<h3>Fill Ups</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Brand</th>
+    <th>Grade</th>
+    <th>Odometer</th>
+    <th>Cost</th>
+		<th>Gallons</th>
+		<th>Actions</th>
+  </tr>
+
+<% for fillup in @vehicle.fill_ups %>
+  <tr>
+    <td><%=h fillup.date %></td>
+    <td><%=h fillup.brand %></td>
+    <td><%=h fillup.grade %></td>
+    <td><%=h fillup.odometer %></td>
+    <td><%=h fillup.cost %></td>
+    <td><%=h fillup.gallons %></td>
+    <td>
+			<%= link_to 'Edit', edit_vehicle_fill_up_path(@vehicle) %>&nbsp;
+	    <%= link_to 'Destroy', vehicle_fill_up_path(@vehicle, fillup), :confirm => 'Are you sure?', :method => :delete %>
+		</td>
+  </tr>
+<% end %>
+<% end %>
+</table>
 
 
 

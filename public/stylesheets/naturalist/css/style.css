@@ -122,6 +122,12 @@ A:hover
 	background: transparent url('../img/content_bg.jpg') top left no-repeat;
 }
 
+#left_side 
+{
+	float: left;
+	width: 480px;
+}
+
 #left_side table 
 {
 	border-collapse: collapse;
@@ -130,6 +136,7 @@ A:hover
 	font-size: 11px;
 	line-height: 16px;
 	border: 1px solid #5a5a3a;
+	width: 100%;
 }
 
 #left_side table th 
@@ -160,11 +167,6 @@ A:hover
 	color: inherit;
 }
 
-#left_side 
-{
-	float: left;
-	width: 480px;
-}
 
 #left_side h3 
 {

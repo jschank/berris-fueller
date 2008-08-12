@@ -24,4 +24,15 @@ class FillUpsController < ApplicationController
     end
   end
 
+  def destroy
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    @fillup = FillUp.find(params[:id])
+    @fillup.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(@vehicle) }
+      format.xml  { head :ok }
+    end
+  end
+  
 end

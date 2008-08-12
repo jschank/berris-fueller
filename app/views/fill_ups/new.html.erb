@@ -1,5 +1,9 @@
 <% title 'New Fill Up' %>
 
+<% content_for :navigation do %>
+	<li><%= link_to 'Back', vehicles_path %></li>
+<% end %>
+
 <% form_for(:fillup, @fillup, :url => {:action => 'create'} ) do |f| %>
   <%= f.error_messages %>
 
@@ -32,4 +36,3 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', vehicles_path %>
