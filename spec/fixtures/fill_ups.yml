@@ -3,12 +3,13 @@
 one:
   vehicle_id: 1
   date: 2008-08-11
-  odometer: 1
-  cost_in_cents: 1
-  gallons: 1.5
+  odometer: 100
+  cost_in_cents: 1600
+  gallons: 4.0
   brand: MyString
   grade: 1
-
+  elapsed_miles: 100
+  
 two:
   vehicle_id: 1
   date: 2008-08-11
@@ -17,3 +18,4 @@ two:
   gallons: 1.5
   brand: MyString
   grade: 1
+  elapsed_miles: 0

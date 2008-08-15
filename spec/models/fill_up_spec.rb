@@ -5,11 +5,12 @@ describe FillUp do
     @valid_attributes = {
       :vehicle_id => "1",
       :date => Date.today,
-      :odometer => "1",
-      :cost_in_cents => "1",
-      :gallons => "1.5",
+      :odometer => "100",
+      :cost_in_cents => "1600",
+      :gallons => "4",
       :brand => "value for brand",
-      :grade => "1"
+      :grade => "81",
+      :elapsed_miles => "100"
     }
   end
 

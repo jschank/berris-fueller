@@ -15,6 +15,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.xml
   def show
+    #todo - Probably should redirect to vehicle_fill_ups and do the stuff there. Will need @vehicle or its id.
     @vehicle = Vehicle.find(params[:id])
     @vehicle.fill_ups.sort! { |a,b| a.odometer <=> b.odometer}
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080811181240) do
+ActiveRecord::Schema.define(:version => 20080815014104) do
 
   create_table "fill_ups", :force => true do |t|
     t.integer  "vehicle_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20080811181240) do
     t.integer  "grade"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "elapsed_miles"
   end
 
   create_table "vehicles", :force => true do |t|
