@@ -17,7 +17,11 @@ class FillUp < ActiveRecord::Base
   private
   
   def calc_elapsed_miles
-    fillup = FillUp.find(:first, :order => "odometer DESC", :conditions => {:vehicle_id => self.vehicle.id}  )
-    self.elapsed_miles = self.odometer - ( fillup ? fillup.odometer : self.vehicle.miles)
+    if (self.vehicle.nil?)
+      self.elapsed_miles = nil
+    else    
+      fillup = FillUp.find(:first, :order => "odometer DESC", :conditions => {:vehicle_id => self.vehicle.id}  )
+      self.elapsed_miles = self.odometer - ( fillup ? fillup.odometer : self.vehicle.miles)
+    end
   end
 end

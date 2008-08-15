@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  vehicle_id: 1
+  vehicle_id: new_car
   date: 2008-08-11
   odometer: 100
   cost_in_cents: 1600
@@ -11,11 +11,11 @@ one:
   elapsed_miles: 100
   
 two:
-  vehicle_id: 1
+  vehicle_id: new_car
   date: 2008-08-11
-  odometer: 1
-  cost_in_cents: 1
-  gallons: 1.5
+  odometer: 150
+  cost_in_cents: 600
+  gallons: 2.0
   brand: MyString
   grade: 1
-  elapsed_miles: 0
+  elapsed_miles: 50
