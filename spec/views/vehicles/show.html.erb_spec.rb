@@ -13,7 +13,7 @@ describe "/vehicles/show.html.erb" do
   end
 
   it "should render attributes in <p>" do
-    render "/vehicles/show.html.erb"
+    render "/vehicles/show.html.erb", :layout => true 
     response.should have_text(/value\ for\ name/)
     response.should have_text(/value\ for\ make/)
     response.should have_text(/value\ for\ model/)

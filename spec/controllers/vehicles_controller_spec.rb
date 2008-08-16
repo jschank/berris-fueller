@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe VehiclesController do
 
   def mock_vehicle(stubs={})
-    @mock_vehicle ||= mock_model(Vehicle, stubs)
+    @mock_vehicle ||= mock_model(Vehicle, stubs)    
   end
   
   describe "responding to GET index" do
@@ -35,7 +35,7 @@ describe VehiclesController do
       get :show, :id => "37"
       assigns[:vehicle].should equal(mock_vehicle)
     end
-    
+
     describe "with mime type of xml" do
 
       it "should render the requested vehicle as xml" do
