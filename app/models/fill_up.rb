@@ -20,8 +20,8 @@ class FillUp < ActiveRecord::Base
     if (self.vehicle.nil?)
       self.elapsed_miles = nil
     else    
-      fillup = FillUp.find(:first, :order => "odometer DESC", :conditions => {:vehicle_id => self.vehicle.id}  )
-      self.elapsed_miles = self.odometer - ( fillup ? fillup.odometer : self.vehicle.miles)
+      fill_up = FillUp.find(:first, :order => "odometer DESC", :conditions => {:vehicle_id => self.vehicle.id}  )
+      self.elapsed_miles = self.odometer - ( fill_up ? fill_up.odometer : self.vehicle.miles)
     end
   end
 end

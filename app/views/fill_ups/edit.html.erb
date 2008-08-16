@@ -4,7 +4,7 @@
 	<li><%= link_to 'Back', @vehicle %></li>
 <% end %>
 
-<% form_for @fillup, :url => edit_vehicle_fill_up_url(@vehicle, @fillup), :html => {:method => :put} do |f| %>
+<% form_for @fill_up, :url => vehicle_fill_up_path(@vehicle, @fill_up), :html => {:method => :put} do |f| %>
   <%= f.error_messages %>
 
   <p>
