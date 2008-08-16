@@ -1,0 +1,37 @@
+<% title "Editing Fill Up" %>
+
+<% content_for :navigation do %>
+	<li><%= link_to 'Back', @vehicle %></li>
+<% end %>
+
+<% form_for @fillup, :url => edit_vehicle_fill_up_url(@vehicle, @fillup), :html => {:method => :put} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :odometer %><br />
+    <%= f.text_field :odometer %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :gallons %><br />
+    <%= f.text_field :gallons %>
+  </p>
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :grade %><br />
+    <%= f.text_field :grade %>
+  </p>
+  <p>
+    <%= submit_tag %>
+  </p>
+<% end %>

@@ -24,6 +24,27 @@ class FillUpsController < ApplicationController
     end
   end
 
+  def edit
+    @vehicle = Vehicle.find params[:vehicle_id]
+    @fillup = FillUp.find(params[:id])
+  end
+
+  def update
+    @vehicle = Vehicle.find params[:vehicle_id]
+    @fillup = FillUp.find(params[:id])
+
+    respond_to do |format|
+      if @fillup.update_attributes(params[:fill_up])
+        flash[:notice] = 'Fill up was successfully updated.'
+        format.html { redirect_to(@vehicle) }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to edit_vehicle_fill_up(@fillup.vehicle_id, @fillup) }
+        format.xml  { render :xml => @fillup.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @vehicle = Vehicle.find(params[:vehicle_id])
     @fillup = FillUp.find(params[:id])

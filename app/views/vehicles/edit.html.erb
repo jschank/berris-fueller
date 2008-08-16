@@ -1,6 +1,11 @@
-<h1>Editing vehicle</h1>
+<% title "Editing Vehicle" %>
 
-<% form_for(@vehicle) do |f| %>
+<% content_for :navigation do %>
+	<li><%= link_to 'Show', @vehicle %></li>
+	<li><%= link_to 'Back', vehicles_path %></li>
+<% end %>
+
+<% form_for @vehicle, :html => {:method => :put}  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -17,7 +22,7 @@
   </p>
   <p>
     <%= f.label :year %><br />
-    <%= f.date_select :year %>
+    <%= f.text_field :year %>
   </p>
   <p>
     <%= f.label :miles %><br />
@@ -28,5 +33,3 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @vehicle %> |
-<%= link_to 'Back', vehicles_path %>
