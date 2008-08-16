@@ -1,7 +1,7 @@
 class FillUpsController < ApplicationController
   def create
-    @vehicle = Vehicle.find(params[:vehicle_id])
-    @fillup = @vehicle.fill_ups.build params[:fillup]
+    @fillup = FillUp.new params[:fill_up]
+    @fillup.vehicle_id = params[:vehicle_id]
 
     respond_to do |format|
       if @fillup.save

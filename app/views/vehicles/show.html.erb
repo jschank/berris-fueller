@@ -45,7 +45,7 @@
 		<th>Actions</th>
   </tr>
 
-<% for fillup in @vehicle.fill_ups..sort { |a,b| a.odometer <=> b.odometer} %>
+<% for fillup in @vehicle.fill_ups.sort { |a,b| a.odometer <=> b.odometer} %>
   <tr>
     <td><%=h fillup.date %></td>
     <td><%=h fillup.brand %></td>
