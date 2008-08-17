@@ -44,4 +44,30 @@ describe FillUp, "with fixtures loaded" do
     vehicle.should have(3).fill_ups
   end
   
+  describe "Performing Updates" do
+    before(:each) do
+      @fill_up = FillUp.find(fill_ups(:two).id)
+    end
+
+    it "should should find an existing fill_up" do
+      @fill_up.should eql(fill_ups(:two))
+    end
+
+    it "should have correct elapsed miles in Second fill up" do
+      @fill_up.elapsed_miles.should eql(150)
+    end
+    
+    it "should have no errors after update" do
+      @fill_up.update_attributes!( {:brand => 'Chevron', :grade => 91}).should be_true
+      @fill_up.errors.should be_empty
+      @fill_up.brand.should eql('Chevron')
+      @fill_up.elapsed_miles.should eql(150)
+      @fill_up = FillUp.find(fill_ups(:two).id)
+      @fill_up.brand.should eql('Chevron')
+      @fill_up.grade.should eql(91)
+      @fill_up.elapsed_miles.should eql(150)
+    end
+    
+  end
+  
 end
