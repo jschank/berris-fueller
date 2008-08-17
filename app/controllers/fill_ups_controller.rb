@@ -33,12 +33,19 @@ class FillUpsController < ApplicationController
     @vehicle = Vehicle.find params[:vehicle_id]
     @fill_up = FillUp.find(params[:id])
 
+    old_reading = @fill_up.odometer
     respond_to do |format|
       if @fill_up.update_attributes(params[:fill_up])
+        next_fill_up = FillUp.next_fill_up(@vehicle, old_reading)
+        next_fill_up.save unless next_fill_up.nil? || next_fill_up.id == @fill_up.id
+
+        new_next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
+        new_next_fill_up.save unless new_next_fill_up.nil? || new_next_fill_up.id == @fill_up.id
         flash[:notice] = 'Fill up was successfully updated.'
         format.html { redirect_to(@vehicle) }
         format.xml  { head :ok }
       else
+        flash[:error] = 'Fill up update failed!'
         format.html { redirect_to edit_vehicle_fill_up(@fill_up.vehicle_id, @fill_up) }
         format.xml  { render :xml => @fill_up.errors, :status => :unprocessable_entity }
       end

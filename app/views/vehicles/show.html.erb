@@ -55,7 +55,7 @@
     <td><%=h fill_up.cost %></td>
     <td><%=h fill_up.gallons %></td>
     <td>
-			<%= link_to 'Edit', edit_vehicle_fill_up_path(@vehicle) %>&nbsp;
+			<%= link_to 'Edit', edit_vehicle_fill_up_path(@vehicle, fill_up) %>&nbsp;
 	    <%= link_to 'Destroy', vehicle_fill_up_path(@vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
 		</td>
   </tr>

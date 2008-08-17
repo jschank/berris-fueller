@@ -13,20 +13,32 @@ class FillUp < ActiveRecord::Base
   def cost_per_gallon
     cost / gallons.to_f
   end
+
+  def self.previous_fill_up(vehicle, odometer)
+    FillUp.find(
+      :first, 
+      :order => "odometer DESC", 
+      :limit => 1, 
+      :conditions => ["vehicle_id = :vehicle AND odometer < :odometer", {:vehicle => vehicle.id, :odometer => odometer }])
+  end
+  
+  def self.next_fill_up(vehicle, odometer)
+    FillUp.find(
+      :first, 
+      :order => "odometer ASC", 
+      :limit => 1, 
+      :conditions => ["vehicle_id = :vehicle AND odometer > :odometer", {:vehicle => vehicle.id, :odometer => odometer }])
+  end
   
   private
   
   def calc_elapsed_miles
     if (self.vehicle.nil?)
       self.elapsed_miles = nil
-    else    
-      fill_up = FillUp.find(
-        :first, 
-        :order => "odometer DESC", 
-        :limit => 1, 
-        :conditions => ["vehicle_id = :vehicle AND odometer < :odometer", {:vehicle => self.vehicle.id, :odometer => self.odometer }])
-
+    else
+      fill_up = FillUp.previous_fill_up(vehicle, odometer)
       self.elapsed_miles = self.odometer - ( fill_up ? fill_up.odometer : self.vehicle.miles)
     end
-  end
+  end  
+  
 end

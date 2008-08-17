@@ -57,7 +57,7 @@ describe FillUp, "with fixtures loaded" do
       @fill_up.elapsed_miles.should eql(150)
     end
     
-    it "should have no errors after update" do
+    it "should have no errors after update when not updating the odometer" do
       @fill_up.update_attributes!( {:brand => 'Chevron', :grade => 91}).should be_true
       @fill_up.errors.should be_empty
       @fill_up.brand.should eql('Chevron')
