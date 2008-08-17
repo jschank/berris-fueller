@@ -1,21 +1,31 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  vehicle_id: new_car
+  vehicle: new_car
   date: 2008-08-11
-  odometer: 100
+  odometer: 150
   cost_in_cents: 1600
   gallons: 4.0
-  brand: MyString
-  grade: 1
+  brand: Exxon
+  grade: 83
   elapsed_miles: 100
   
 two:
-  vehicle_id: new_car
-  date: 2008-08-11
-  odometer: 150
-  cost_in_cents: 600
-  gallons: 2.0
-  brand: MyString
-  grade: 1
-  elapsed_miles: 50
+  vehicle: new_car
+  date: 2008-08-12
+  odometer: 300
+  cost_in_cents: 1800
+  gallons: 6.0
+  brand: Mobil
+  grade: 85
+  elapsed_miles: 150
+  
+three:
+  vehicle: new_car
+  date: 2008-08-13
+  odometer: 325
+  cost_in_cents: 400
+  gallons: 1.0
+  brand: Chevron
+  grade: 83
+  elapsed_miles: 25

@@ -18,3 +18,30 @@ describe FillUp do
     FillUp.create!(@valid_attributes)
   end
 end
+
+describe FillUp, "with fixtures loaded" do
+  fixtures :vehicles, :fill_ups
+  
+  before(:each) do
+    # fixtures are setup before this
+  end  
+  
+  it "should have a non-empty collection of vehicles" do
+    Vehicle.find(:all).should_not be_empty
+  end
+  
+  it "should have two records" do
+    Vehicle.should have(2).record
+  end
+  
+  it "should should find an existing vehicle" do
+    vehicle = Vehicle.find(vehicles(:new_car).id)
+    vehicle.should eql(vehicles(:new_car))
+  end
+  
+  it "should should have fillups" do
+    vehicle = Vehicle.find(vehicles(:new_car).id)
+    vehicle.should have(3).fill_ups
+  end
+  
+end

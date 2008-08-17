@@ -12,4 +12,4 @@ new_car:
   make: Toyota
   model: Prius
   year: 2008
-  miles: 0
+  miles: 50
