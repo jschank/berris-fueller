@@ -56,6 +56,8 @@ class FillUpsController < ApplicationController
     @vehicle = Vehicle.find(params[:vehicle_id])
     @fill_up = FillUp.find(params[:id])
     @fill_up.destroy
+    next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
+    next_fill_up.save unless next_fill_up.nil?
 
     respond_to do |format|
       format.html { redirect_to(@vehicle) }
