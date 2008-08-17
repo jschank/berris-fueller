@@ -122,6 +122,68 @@ A:hover
 	background: transparent url('../img/content_bg.jpg') top left no-repeat;
 }
 
+#flash_notice, #flash_error 
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 14px;
+	padding: 5px 8px;
+	margin: 10px 0;
+}
+
+#flash_notice 
+{
+	background-color: #CFC;
+	border: solid 3px #6C6;
+	color: #6C6;
+}
+
+#flash_error 
+{
+	background-color: #FCC;
+	border: solid 3px #C66;
+	color: #C66;
+}
+
+
+#errorExplanation 
+{
+	width: 100%;
+	border: 2px solid #CF0000;
+	padding: 0px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+}
+
+#errorExplanation h2 
+{
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 12px;
+	margin: 0px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#errorExplanation p 
+{
+	color: #333;
+	margin-bottom: 0;
+	padding: 8px;
+}
+
+#errorExplanation ul 
+{
+	margin: 2px 24px;
+}
+
+#errorExplanation ul li 
+{
+	font-size: 12px;
+	list-style: disc;
+}
+
 #left_side 
 {
 	float: left;
@@ -167,7 +229,6 @@ A:hover
 	color: inherit;
 }
 
-
 #left_side h3 
 {
 	margin: 10px;
@@ -187,6 +248,11 @@ A:hover
 	font-size: 12px;
 	line-height: 18px;
 	color: #333333;
+}
+
+.fieldWithErrors
+{	
+	display: inline;
 }
 
 #right_side 
