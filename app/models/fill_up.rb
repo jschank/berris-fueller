@@ -1,5 +1,11 @@
 class FillUp < ActiveRecord::Base
   belongs_to :vehicle
+  validates_presence_of :vehicle_id, :date, :odometer, :cost, :gallons, :brand, :grade
+  validates_numericality_of :odometer, :integer_only => true
+  validates_numericality_of :cost
+  validates_numericality_of :gallons
+  validates_inclusion_of :grade, :in => [81, 83, 87, 91]
+  
   before_save :calc_elapsed_miles
   
   def miles_per_gallon
