@@ -250,10 +250,14 @@ A:hover
 	color: #333333;
 }
 
-.fieldWithErrors
-{	
+.fieldWithErrors 
+{
+  padding: 2px;
+  background-color: #fcc;
+	color: #c66;
 	display: inline;
 }
+
 
 #right_side 
 {
