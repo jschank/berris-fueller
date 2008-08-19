@@ -5,6 +5,6 @@
 <% end %>
 
 <% form_for([:vehicle, @fill_up]) do |f| %>
-<%= render :partial => 'fill_up_fields', :locals => {:form => f} %>
+	<%= render :partial => 'form', :object => f %>
 <% end %>
 

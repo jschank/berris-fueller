@@ -5,5 +5,5 @@
 <% end %>
 
 <% form_for @fill_up, :url => vehicle_fill_up_path(@vehicle, @fill_up), :html => {:method => :put} do |f| %>
-	<%= render :partial => 'fill_up_fields', :locals => {:form => f} %>
+	<%= render :partial => 'form', :object => f %>
 <% end %>

@@ -1,4 +1,7 @@
 class FillUpsController < ApplicationController
+  
+  # todo - Add a before_filter to do the finding of the vehicle and the fillup
+  
   def create
     @vehicle = Vehicle.find params[:vehicle_id]
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
