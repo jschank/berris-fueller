@@ -5,30 +5,6 @@
 <% end %>
 
 <% form_for(@vehicle) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :make %><br />
-    <%= f.text_field :make %>
-  </p>
-  <p>
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </p>
-  <p>
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </p>
-  <p>
-    <%= f.label :miles %><br />
-    <%= f.text_field :miles %>
-  </p>
-  <p>
-    <%= submit_tag %>
-  </p>
+	<%= render :partial => 'form', :object => f %>
 <% end %>
 
