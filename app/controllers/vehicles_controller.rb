@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  before_filter :find_vehicle, :except => :index 
   active_scaffold
   
   # GET /vehicles
@@ -15,8 +16,6 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.xml
   def show
-    @vehicle = Vehicle.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vehicle }
@@ -36,7 +35,6 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1/edit
   def edit
-    @vehicle = Vehicle.find(params[:id])
   end
 
   # POST /vehicles
@@ -59,8 +57,6 @@ class VehiclesController < ApplicationController
   # PUT /vehicles/1
   # PUT /vehicles/1.xml
   def update
-    @vehicle = Vehicle.find(params[:id])
-
     respond_to do |format|
       if @vehicle.update_attributes(params[:vehicle])
         flash[:notice] = 'Vehicle was successfully updated.'
@@ -76,7 +72,6 @@ class VehiclesController < ApplicationController
   # DELETE /vehicles/1
   # DELETE /vehicles/1.xml
   def destroy
-    @vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
 
     respond_to do |format|
@@ -84,4 +79,11 @@ class VehiclesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+
+  def find_vehicle
+    @vehicle = Vehicle.find(params[:id])
+  end
+  
 end

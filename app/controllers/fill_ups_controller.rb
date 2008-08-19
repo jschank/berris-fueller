@@ -1,9 +1,7 @@
 class FillUpsController < ApplicationController
-  
-  # todo - Add a before_filter to do the finding of the vehicle and the fillup
+  before_filter :find_vehicle_and_fill_up
   
   def create
-    @vehicle = Vehicle.find params[:vehicle_id]
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
 
     respond_to do |format|
@@ -28,14 +26,9 @@ class FillUpsController < ApplicationController
   end
 
   def edit
-    @vehicle = Vehicle.find params[:vehicle_id]
-    @fill_up = FillUp.find(params[:id])
   end
 
   def update
-    @vehicle = Vehicle.find params[:vehicle_id]
-    @fill_up = FillUp.find(params[:id])
-
     old_reading = @fill_up.odometer
     respond_to do |format|
       if @fill_up.update_attributes(params[:fill_up])
@@ -56,8 +49,6 @@ class FillUpsController < ApplicationController
   end
 
   def destroy
-    @vehicle = Vehicle.find(params[:vehicle_id])
-    @fill_up = FillUp.find(params[:id])
     @fill_up.destroy
     next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
     next_fill_up.save unless next_fill_up.nil?
@@ -66,6 +57,13 @@ class FillUpsController < ApplicationController
       format.html { redirect_to(@vehicle) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def find_vehicle_and_fill_up
+    @vehicle = Vehicle.find params[:vehicle_id]
+    @fill_up = FillUp.find(params[:id])
   end
   
 end
