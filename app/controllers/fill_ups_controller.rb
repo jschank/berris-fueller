@@ -63,7 +63,7 @@ class FillUpsController < ApplicationController
   
   def find_vehicle_and_fill_up
     @vehicle = Vehicle.find params[:vehicle_id]
-    @fill_up = FillUp.find(params[:id])
+    @fill_up = FillUp.find(params[:id]) if params[:id]
   end
   
 end

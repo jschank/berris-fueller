@@ -1,29 +1,10 @@
-  <%= form.error_messages %>
-
-  <p>
-    <%= form.label :date %><br />
-    <%= form.date_select :date %>
-  </p>
-  <p>
-    <%= form.label :odometer %><br />
-    <%= form.text_field :odometer %>
-  </p>
-  <p>
-    <%= form.label :cost %><br />
-    <%= form.text_field :cost %>
-  </p>
-  <p>
-    <%= form.label :gallons %><br />
-    <%= form.text_field :gallons %>
-  </p>
-  <p>
-    <%= form.label :brand %><br />
-    <%= form.text_field :brand %>
-  </p>
-  <p>
-    <%= form.label :grade %><br />
-    <%= form.text_field :grade %>
-  </p>
-  <p>
-    <%= submit_tag %>
-  </p>
+<%= form.error_messages %>
+<% field_set_tag "Fill Up Details" do %>
+	<%= form.date_select :date, :label => 'Date:', :required => true, :help => 'The date of the fill up.' %>
+	<%= form.text_field :odometer, :label => "Odometer:", :required => true, :help => 'The odometer reading at the time of fill up.' %>
+	<%= form.text_field :cost, :label => "Cost:",  :required => true, :help => 'The cost of the fill up.' %>
+	<%= form.text_field :gallons, :label => "Gallons:",  :required => true, :help => 'The numbe of gallons of fuel.' %>
+	<%= form.text_field :brand, :label => "Brand:",  :required => true, :help => 'The brand of gasoline.' %>
+	<%= form.text_field :grade, :label => "Grade:",  :required => true, :help => 'The grade (octane) of the gasoline.' %>
+	<%= submit_tag %>
+<% end %>
