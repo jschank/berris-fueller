@@ -3,8 +3,8 @@
 	<%= form.date_select :date, :label => 'Date:', :required => true, :help => 'The date of the fill up.' %>
 	<%= form.text_field :odometer, :label => "Odometer:", :required => true, :help => 'The odometer reading at the time of fill up.' %>
 	<%= form.text_field :cost, :label => "Cost:",  :required => true, :help => 'The cost of the fill up.' %>
-	<%= form.text_field :gallons, :label => "Gallons:",  :required => true, :help => 'The numbe of gallons of fuel.' %>
+	<%= form.text_field :gallons, :label => "Gallons:",  :required => true, :help => 'The number of gallons of fuel.' %>
 	<%= form.text_field :brand, :label => "Brand:",  :required => true, :help => 'The brand of gasoline.' %>
 	<%= form.text_field :grade, :label => "Grade:",  :required => true, :help => 'The grade (octane) of the gasoline.' %>
-	<%= submit_tag %>
+	<%= form.submit_and_cancel("Save", "Cancel") %>
 <% end %>

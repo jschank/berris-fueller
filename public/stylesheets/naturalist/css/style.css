@@ -7,6 +7,7 @@ http://creativecommons.org/licenses/by-nc/2.5/
 body 
 {
 	text-align: center;
+	font-family: verdana, helvetica, sans-serif;
 	background: #656868 url('../img/bg.jpg') top center no-repeat fixed;
 	margin-top: 30px;
 	margin-bottom: 30px;
