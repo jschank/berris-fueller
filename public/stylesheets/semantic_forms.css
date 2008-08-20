@@ -24,13 +24,15 @@ form textarea
 	border-right: 2px solid #cccccc;
 	border-bottom: 2px solid #cccccc;
 	background-color: #fff;
+	height: 1.5em;
+	font-size: 110%;
 }
 
 form input[type=text],
 form input[type=password],
 form textarea 
 {
-	width: 18em;
+	width: 13em;
 }
 
 form select 

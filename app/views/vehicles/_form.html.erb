@@ -1,25 +1,9 @@
 <%= form.error_messages %>
-
-<p>
-  <%= form.label :name %><br />
-  <%= form.text_field :name %>
-</p>
-<p>
-  <%= form.label :make %><br />
-  <%= form.text_field :make %>
-</p>
-<p>
-  <%= form.label :model %><br />
-  <%= form.text_field :model %>
-</p>
-<p>
-  <%= form.label :year %><br />
-  <%= form.text_field :year %>
-</p>
-<p>
-  <%= form.label :miles %><br />
-  <%= form.text_field :miles %>
-</p>
-<p>
-  <%= submit_tag %>
-</p>
+<% field_set_tag "Fill Up Details" do %>
+	<%= form.text_field :name, :label => "Name:", :required => true, :help => 'A unique name to identify your vehicle.' %>
+	<%= form.text_field :make, :label => "Make:",  :required => true, :help => 'The manufacturer of the vehicle.' %>
+	<%= form.text_field :model, :label => "Model:",  :required => true, :help => 'The model of vehicle.' %>
+	<%= form.text_field :year, :label => "Year:",  :required => true, :help => 'The model year.' %>
+	<%= form.text_field :miles, :label => "Miles:",  :required => true, :help => 'The odometer reading on first fill up.' %>
+	<%= form.submit_and_cancel("Save", "Cancel") %>
+<% end %>
