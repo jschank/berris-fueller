@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_filter :find_vehicle, :except => :index 
+  before_filter :find_vehicle, :except => [:index, :new, :create]
   active_scaffold
   
   # GET /vehicles

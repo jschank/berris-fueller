@@ -1,5 +1,6 @@
 class FillUpsController < ApplicationController
-  before_filter :find_vehicle_and_fill_up
+  before_filter :find_vehicle
+  before_filter :find_fill_up, :except => [:index, :new, :create]
   
   def create
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
@@ -61,9 +62,12 @@ class FillUpsController < ApplicationController
   
   private
   
-  def find_vehicle_and_fill_up
+  def find_vehicle
     @vehicle = Vehicle.find params[:vehicle_id]
-    @fill_up = FillUp.find(params[:id]) if params[:id]
+  end
+  
+  def find_fill_up
+    @fill_up = FillUp.find(params[:id])    
   end
   
 end
