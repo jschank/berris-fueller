@@ -201,7 +201,8 @@ A:hover
 	font-size: 11px;
 	line-height: 16px;
 	border: 1px solid #5a5a3a;
-	width: 100%;
+	width: 620px;
+	margin: 10px;
 }
 
 #left_side table th 
