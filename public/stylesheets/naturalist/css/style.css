@@ -40,7 +40,8 @@ A:hover
 
 #page_wrapper 
 {
-	background: #F3E7A9 url('../img/page_bg.jpg') top left;
+/*	background: #F3E7A9 url('../img/page_bg.jpg') top left;*/
+	background: #F3E7A9 top left;
 	margin-left: auto;
 	margin-right: auto;
 	width: 640px;
@@ -120,7 +121,8 @@ A:hover
 
 #content_wrapper 
 {
-	background: transparent url('../img/content_bg.jpg') top left no-repeat;
+/*background: transparent url('../img/content_bg.jpg') top left no-repeat;*/
+	background: #F3E7A9;
 }
 
 #flash_notice, #flash_error 
@@ -188,7 +190,7 @@ A:hover
 #left_side 
 {
 	float: left;
-	width: 480px;
+	width: 100%;
 }
 
 #left_side table 
@@ -210,6 +212,7 @@ A:hover
 	color: #A0410D;
 	border-bottom: 1px solid #5a5a3a;
 	border-right: 1px solid #5a5a3a;
+	background-color: #f1c969;
 }
 
 #left_side table td 
@@ -260,7 +263,7 @@ A:hover
 }
 
 
-#right_side 
+/*#right_side 
 {
 	float: right;
 	width: 150px;
@@ -289,7 +292,7 @@ A:hover
 	font-size: 11px;
 	line-height: 16px;
 	color: #333333;
-}
+}*/
 
 #page_footer 
 {

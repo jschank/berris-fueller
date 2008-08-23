@@ -11,7 +11,7 @@
 		<th>Actions</th>
   </tr>
 	<% fill_ups.each do |fill_up| %>
-	<tr>
+	<tr class="<%= cycle("rowA", "rowB") %>">
 	  <td><%=fill_up.date %></td>
 	  <td><%=fill_up.brand %></td>
 	  <td><%=fill_up.grade %></td>
