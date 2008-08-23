@@ -4,6 +4,16 @@
 	<li><%= link_to 'Back', @vehicle %></li>
 <% end %>
 
+<% if flash[:validation_errors] %>
+<p>
+Fill up could not be created because:<br />
+	<% flash[:validation_errors].full_messages.each do |msg|  %>
+		<%= msg %><br />
+	<% end %>
+</p>
+<% end %>
+
+
 <% form_tag upload_fill_ups_path(@vehicle), :multipart => true, :method => :put do %>
 	<% field_set_tag "Import CSV File" do %>
 		<p>
@@ -17,9 +27,9 @@
 		<p>* Note: cost must be in pennies.</p>
 
 		<p>select a file to upload</p>
-		<%= file_field_tag 'data', :accept => 'text/plain' %><br />
+		<p><%= file_field_tag 'data', :accept => 'text/plain' %></p>
 		<%= submit_tag "Upload" %>
-<% end %>
+	<% end %>
 <% end %>
 
 

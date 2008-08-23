@@ -1,8 +1,18 @@
-#require 'ar-extensions'
 class FillUpsController < ApplicationController
   before_filter :find_vehicle
   before_filter :find_fill_up, :except => [:index, :new, :create, :import, :upload]
   
+  class ValidationException < RuntimeError
+    def initialize(errors, message)
+      @validation_errors = errors
+      super(message)
+    end
+    
+    def errors 
+      @validation_errors
+    end
+  end
+
   def create
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
 
@@ -73,33 +83,38 @@ class FillUpsController < ApplicationController
       end
     else
     
-    lines = params[:data].readlines.collect!{|line| line.chomp}
-    fields = lines.shift.split(/,/).collect!{|c| c.downcase.to_sym}
-    data = lines.collect!{|line| line.chomp.split(/,/)}
-  
-    @successes = 0
-    @failures = {}
-    data.each do |item|
-      array = fields.zip(item).flatten
-      hash = Hash[*array]
-    
-      fill_up = @vehicle.fill_ups.build hash
-      if(fill_up.save)
-        @successes += 1
-      else
-        @failures[hash[:date]] = []
-        fill_up.errors.each_full { |msg| @failures[hash[:date]] << msg}
+      lines = params[:data].readlines.collect!{|line| line.chomp}
+      fields = lines.shift.split(/,/).collect!{|c| c.downcase.to_sym}
+      data = lines.collect!{|line| line.chomp.split(/,/)}
+
+      begin
+        FillUp.transaction do
+          data.each do |item|
+            array = fields.zip(item).flatten
+            hash = Hash[*array]
+
+            fill_up = @vehicle.fill_ups.build hash
+            if !fill_up.save
+              raise ValidationException.new(fill_up.errors, "Failed to import fill up dated #{hash[:date]}")
+            end
+          end
+        end
+
+        flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(@data.length, 'fill up', 'fill ups') }"
+        respond_to do |format|
+          format.html { redirect_to(@vehicle) }
+          format.xml  { head :ok }
+        end
+
+      rescue ValidationException => e
+        flash[:error] = e.message
+        flash[:validation_errors] = e.errors
+        respond_to do |format|
+          format.html { redirect_to(:back) }
+          format.xml  { head :ok }
+        end
       end
     end
-  
-    flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(@successes, 'fill up', 'fill ups') }" unless @successes == 0
-    flash[:error] = "Failed to import #{ActionView::Helpers::TextHelper.pluralize(@failures.length, 'fill up', 'fill ups') }" unless @failures.length == 0
-
-    respond_to do |format|
-      format.html #upload.html.erb
-      format.xml  { head :ok }
-    end
-  end
   end
   
   private
