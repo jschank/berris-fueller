@@ -100,7 +100,7 @@ class FillUpsController < ApplicationController
           end
         end
 
-        flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(@data.length, 'fill up', 'fill ups') }"
+        flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
         respond_to do |format|
           format.html { redirect_to(@vehicle) }
           format.xml  { head :ok }
