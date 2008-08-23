@@ -65,23 +65,41 @@ class FillUpsController < ApplicationController
   end
   
   def upload
+    if params[:data] == ""
+      flash[:error] = "Must select a file to upload. Click the choose button."
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.xml  { head :bad_request }
+      end
+    else
+    
     lines = params[:data].readlines.collect!{|line| line.chomp}
     fields = lines.shift.split(/,/).collect!{|c| c.downcase.to_sym}
     data = lines.collect!{|line| line.chomp.split(/,/)}
+  
+    @successes = 0
+    @failures = {}
+    data.each do |item|
+      array = fields.zip(item).flatten
+      hash = Hash[*array]
     
-    # OK, it appears that import does not understand the association, so it doesn't add the vehicle id to each row.
-    fields << :vehicle_id
-    data.collect!{|line| line << @vehicle.id}    
-    
-    if @vehicle.fill_ups.import fields, data
-      flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
-    else
-      flash[:error] = "Failed to import fill ups"
+      fill_up = @vehicle.fill_ups.build hash
+      if(fill_up.save)
+        @successes += 1
+      else
+        @failures[hash[:date]] = []
+        fill_up.errors.each_full { |msg| @failures[hash[:date]] << msg}
+      end
     end
+  
+    flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(@successes, 'fill up', 'fill ups') }" unless @successes == 0
+    flash[:error] = "Failed to import #{ActionView::Helpers::TextHelper.pluralize(@failures.length, 'fill up', 'fill ups') }" unless @failures.length == 0
+
     respond_to do |format|
-      format.html { redirect_to(@vehicle) }
+      format.html #upload.html.erb
       format.xml  { head :ok }
     end
+  end
   end
   
   private

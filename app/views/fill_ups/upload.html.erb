@@ -4,15 +4,15 @@
 	<li><%= link_to 'Back', vehicles_path %></li>
 <% end %>
 
-<p><%= params.inspect %></p>
-<p><%= @name %></p>
-<p><%= @items.length %></p>
-
-<% if !@failures.blank? %>
-  <% for failure in @failures %>
-    <p><%= failure %></p>
-  <% end %>
-<% else %>
-  
+<% @failures.each do |key, value| %>
+<p>
+Fill up dated <%= key %> could not be created because:
+<ol>
+	<% value.each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+</ol>
+</p>
 <% end %>
+
 
