@@ -2,6 +2,8 @@ class VehiclesController < ApplicationController
   before_filter :find_vehicle, :except => [:index, :new, :create]
   active_scaffold
   
+  # todo - create an import action. It will take a file of data, and can only be called from an existing vehicle.
+  
   # GET /vehicles
   # GET /vehicles.xml
   def index

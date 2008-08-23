@@ -1,0 +1,25 @@
+<% title 'Import Fill Ups' %>
+
+<% content_for :navigation do %>
+	<li><%= link_to 'Back', @vehicle %></li>
+<% end %>
+
+<% form_tag upload_fill_ups_path(@vehicle), :multipart => true, :method => :put do %>
+	<% field_set_tag "Import CSV File" do %>
+		<p>
+			You may select a Comma Separated Value (CSV) file which has one row per fill up,
+			with column labels in the first row.</p>
+		<p>
+		Valid column labels are:<br/>
+		Date, Grade, Brand, Gallons, Odometer, Cost_in_cents*
+		</p>	
+		<p>All other columns will be ignored.<br />The columns may be in any order</p>
+		<p>* Note: cost must be in pennies.</p>
+
+		<p>select a file to upload</p>
+		<%= file_field_tag 'data', :accept => 'text/plain' %><br />
+		<%= submit_tag "Upload" %>
+<% end %>
+<% end %>
+
+

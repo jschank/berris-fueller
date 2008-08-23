@@ -26,6 +26,9 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
 
+  config.gem "ar-extensions"
+  
+
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -71,5 +74,13 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   first_whitespace = html_tag =~ /\s/
   html_tag[first_whitespace] = " class=\"fieldWithErrors\" "
   html_tag
+end
+
+module ActionView
+  module Helpers
+    module TextHelper
+      module_function :pluralize, :truncate
+    end
+  end
 end
 

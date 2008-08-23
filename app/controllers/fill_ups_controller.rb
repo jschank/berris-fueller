@@ -1,6 +1,7 @@
+#require 'ar-extensions'
 class FillUpsController < ApplicationController
   before_filter :find_vehicle
-  before_filter :find_fill_up, :except => [:index, :new, :create]
+  before_filter :find_fill_up, :except => [:index, :new, :create, :import, :upload]
   
   def create
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
@@ -54,6 +55,29 @@ class FillUpsController < ApplicationController
     next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
     next_fill_up.save unless next_fill_up.nil?
 
+    respond_to do |format|
+      format.html { redirect_to(@vehicle) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def import
+  end
+  
+  def upload
+    lines = params[:data].readlines.collect!{|line| line.chomp}
+    fields = lines.shift.split(/,/).collect!{|c| c.downcase.to_sym}
+    data = lines.collect!{|line| line.chomp.split(/,/)}
+    
+    # OK, it appears that import does not understand the association, so it doesn't add the vehicle id to each row.
+    fields << :vehicle_id
+    data.collect!{|line| line << @vehicle.id}    
+    
+    if @vehicle.fill_ups.import fields, data
+      flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
+    else
+      flash[:error] = "Failed to import fill ups"
+    end
     respond_to do |format|
       format.html { redirect_to(@vehicle) }
       format.xml  { head :ok }
