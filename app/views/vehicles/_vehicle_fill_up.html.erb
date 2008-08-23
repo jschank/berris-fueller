@@ -1,0 +1,28 @@
+<h3>Fill Ups</h3>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Brand</th>
+    <th>Grade</th>
+    <th>Odometer</th>
+		<th>Elapsed Miles</th>
+    <th>Cost</th>
+		<th>Gallons</th>
+		<th>Actions</th>
+  </tr>
+	<% fill_ups.each do |fill_up| %>
+	<tr>
+	  <td><%=fill_up.date %></td>
+	  <td><%=fill_up.brand %></td>
+	  <td><%=fill_up.grade %></td>
+	  <td><%=fill_up.odometer %></td>
+		<td><%=fill_up.elapsed_miles %></td>
+	  <td><%=fill_up.cost %></td>
+	  <td><%=fill_up.gallons %></td>
+	  <td>
+			<%= link_to 'Edit', edit_vehicle_fill_up_path(vehicle, fill_up) %>&nbsp;
+			<%= link_to 'Destroy', vehicle_fill_up_path(vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
+		</td>
+	</tr>
+	<% end %>
+</table>

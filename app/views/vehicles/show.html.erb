@@ -33,36 +33,8 @@
 <% end %>
 
 <% if @vehicle.fill_ups.count > 0 %>
-<h3>Fill Ups</h3>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Brand</th>
-    <th>Grade</th>
-    <th>Odometer</th>
-		<th>Elapsed Miles</th>
-    <th>Cost</th>
-		<th>Gallons</th>
-		<th>Actions</th>
-  </tr>
-
-<% for fill_up in @vehicle.fill_ups.sort { |a,b| a.odometer <=> b.odometer} %>
-  <tr>
-    <td><%=h fill_up.date %></td>
-    <td><%=h fill_up.brand %></td>
-    <td><%=h fill_up.grade %></td>
-    <td><%=h fill_up.odometer %></td>
-		<td><%=h fill_up.elapsed_miles %></td>
-    <td><%=h fill_up.cost %></td>
-    <td><%=h fill_up.gallons %></td>
-    <td>
-			<%= link_to 'Edit', edit_vehicle_fill_up_path(@vehicle, fill_up) %>&nbsp;
-	    <%= link_to 'Destroy', vehicle_fill_up_path(@vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
-		</td>
-  </tr>
+<%= sorted_fill_ups(@vehicle) %>
 <% end %>
-<% end %>
-</table>
 
 
 
