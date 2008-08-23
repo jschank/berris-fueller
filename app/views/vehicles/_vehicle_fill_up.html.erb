@@ -8,6 +8,7 @@
 		<th>Elapsed Miles</th>
     <th>Cost</th>
 		<th>Gallons</th>
+		<th>MPG</th>
 		<th>Actions</th>
   </tr>
 	<% fill_ups.each do |fill_up| %>
@@ -19,6 +20,7 @@
 		<td><%=fill_up.elapsed_miles %></td>
 	  <td><%=fill_up.cost %></td>
 	  <td><%=fill_up.gallons %></td>
+		<td><%=sprintf("%3.1f", fill_up.miles_per_gallon) %></td>
 	  <td>
 			<%= link_to 'Edit', edit_vehicle_fill_up_path(vehicle, fill_up) %>&nbsp;
 			<%= link_to 'Destroy', vehicle_fill_up_path(vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
