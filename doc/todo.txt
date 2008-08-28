@@ -1,0 +1,5 @@
+fixme: Editing the original miles, when there are fillups, does not recalculate the elapsed miles of the first fillup
+todo: Add users and sessions, require login
+todo: Add photo upload for vehicles
+todo: Add summary data for vehicles - total dollars spent, overall MPG
+todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
