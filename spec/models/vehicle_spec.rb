@@ -6,7 +6,7 @@ describe Vehicle do
       :name => "value for name",
       :make => "value for make",
       :model => "value for model",
-      :year => Date.today,
+      :year => 2008,
       :miles => "1"
     }
   end

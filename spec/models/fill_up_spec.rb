@@ -9,7 +9,7 @@ describe FillUp do
       :cost_in_cents => "1600",
       :gallons => "4",
       :brand => "value for brand",
-      :grade => "81",
+      :grade => "87",
       :elapsed_miles => "100"
     }
   end
