@@ -4,7 +4,7 @@ class FillUp < ActiveRecord::Base
   validates_numericality_of :odometer, :integer_only => true
   validates_numericality_of :cost_in_cents
   validates_numericality_of :gallons
-  validates_inclusion_of :grade, :in => [81, 83, 87, 91]
+  validates_inclusion_of :grade, :in => [87, 89, 91, 93]
   
   before_save :calc_elapsed_miles
   
