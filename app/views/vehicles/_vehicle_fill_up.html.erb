@@ -1,11 +1,11 @@
 <h3>Fill Ups</h3>
 <table>
-  <tr>
+  <tr valign="top">
     <th>Date</th>
     <th>Brand</th>
     <th>Grade</th>
     <th>Odometer</th>
-		<th>Elapsed Miles</th>
+		<th>Elapsed<br />Miles</th>
     <th>Cost</th>
 		<th>Gallons</th>
 		<th>MPG</th>
@@ -13,14 +13,14 @@
   </tr>
 	<% fill_ups.each do |fill_up| %>
 	<tr class="<%= cycle("rowA", "rowB") %>">
-	  <td><%=fill_up.date %></td>
-	  <td><%=fill_up.brand %></td>
-	  <td><%= grade_description(fill_up.grade) %></td>
-	  <td><%=fill_up.odometer %></td>
-		<td><%=fill_up.elapsed_miles %></td>
-	  <td><%=fill_up.cost %></td>
-	  <td><%=fill_up.gallons %></td>
-		<td><%=sprintf("%3.1f", fill_up.miles_per_gallon) %></td>
+	  <td align="center"><%=fill_up.date %></td>
+	  <td align="center"><%=fill_up.brand %></td>
+	  <td align="center"><%= grade_description(fill_up.grade) %></td>
+	  <td align="right"><%=fill_up.odometer %></td>
+		<td align="right"><%=fill_up.elapsed_miles %></td>
+	  <td align="right"><%=fill_up.cost %></td>
+	  <td align="right"><%=sprintf("%3.3f", fill_up.gallons) %></td>
+		<td align="right"><%=sprintf("%3.1f", fill_up.miles_per_gallon) %></td>
 	  <td>
 			<%= link_to 'Edit', edit_vehicle_fill_up_path(vehicle, fill_up) %>&nbsp;
 			<%= link_to 'Destroy', vehicle_fill_up_path(vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
