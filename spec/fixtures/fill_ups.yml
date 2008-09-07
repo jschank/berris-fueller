@@ -7,7 +7,7 @@ one:
   cost_in_cents: 1600
   gallons: 4.0
   brand: Exxon
-  grade: 83
+  grade: 87
   elapsed_miles: 100
   
 two:
@@ -17,7 +17,7 @@ two:
   cost_in_cents: 1800
   gallons: 6.0
   brand: Mobil
-  grade: 85
+  grade: 89
   elapsed_miles: 150
   
 three:
@@ -27,5 +27,5 @@ three:
   cost_in_cents: 400
   gallons: 1.0
   brand: Chevron
-  grade: 83
+  grade: 87
   elapsed_miles: 25

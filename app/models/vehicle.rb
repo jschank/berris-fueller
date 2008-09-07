@@ -14,4 +14,7 @@ class Vehicle < ActiveRecord::Base
   def to_param
     "#{id}-#{name.gsub(/\W/, '-').downcase}"
   end
+  
+  private
+  
 end
