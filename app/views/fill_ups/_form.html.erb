@@ -5,6 +5,6 @@
 	<%= form.text_field :cost, :label => "Cost:",  :required => true, :help => 'The cost of the fill up.' %>
 	<%= form.text_field :gallons, :label => "Gallons:",  :required => true, :help => 'The number of gallons of fuel.' %>
 	<%= form.text_field :brand, :label => "Brand:",  :required => true, :help => 'The brand of gasoline.' %>
-	<%= form.text_field :grade, :label => "Grade:",  :required => true, :help => 'The grade (octane) of the gasoline.' %>
+	<%= form.select :grade, [["Regular", 87], ["Plus", 89], ["Premium", 91], ["Ultra", 93]], :label => "Grade:",  :required => true, :help => 'The grade (octane) of the gasoline.' %>
 	<%= form.submit_and_cancel("Save", "Cancel") %>
 <% end %>

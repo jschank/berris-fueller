@@ -1,5 +1,3 @@
-fixme: Editing the original miles, when there are fillups, does not recalculate the elapsed miles of the first fillup
-
 todo: Add users and sessions, require login, Try using restful_authentication or acts_as_authenticated.
 
 todo: Add photo upload for vehicles
@@ -20,3 +18,5 @@ todo: Add csv export.
 todo: Add xml dump.
 
 todo: Deploy to schankopolis using capistrano.
+
+todo: RSpec - figure out where/how to spec behaviors added by controllers. 
