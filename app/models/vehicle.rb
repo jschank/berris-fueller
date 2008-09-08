@@ -1,5 +1,5 @@
 class Vehicle < ActiveRecord::Base
-  has_many :fill_ups
+  has_many :fill_ups, :order => 'odometer ASC'
   validates_presence_of :name, :make, :model, :year, :miles
   validates_length_of :year, :is => 4
   validates_numericality_of :year, :integer_only => true
@@ -7,7 +7,7 @@ class Vehicle < ActiveRecord::Base
   validates_associated :fill_ups
   
   def current_miles
-    return fill_ups.maximum(:odometer) unless fill_ups.count == 0
+    return fill_ups[-1].odometer unless fill_ups.size == 0
     return miles
   end
   

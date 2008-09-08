@@ -32,8 +32,8 @@
 </p>
 <% end %>
 
-<% if @vehicle.fill_ups.count > 0 %>
-<%= sorted_fill_ups(@vehicle) %>
+<% if @vehicle.fill_ups.size > 0 %>
+<%= render :partial => 'vehicle_fill_up', :locals => {:fill_ups => @vehicle.fill_ups, :vehicle => @vehicle  } %>
 <% end %>
 
 

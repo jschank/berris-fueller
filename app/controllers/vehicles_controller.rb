@@ -59,7 +59,7 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update_attributes(params[:vehicle])
-        first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0]
+        first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0] unless @vehicle.fill_ups.size == 0
         first_fill_up.save unless first_fill_up.nil?
         flash[:notice] = 'Vehicle was successfully updated.'
         format.html { redirect_to(@vehicle) }
