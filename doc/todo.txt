@@ -4,6 +4,8 @@ todo: Add photo upload for vehicles
 
 todo: Add summary data for vehicles - total dollars spent, overall MPG
 
+todo: Add a savings calculation - enter a hypothetical MPG - show the dollar savings or expense over the total miles at that MPG
+
 todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
 
 todo: Add charts to app.

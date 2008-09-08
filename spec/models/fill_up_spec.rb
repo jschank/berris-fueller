@@ -1,5 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
+DELTA = 0.005
+
 describe FillUp do
   before(:each) do
     @valid_attributes = {
@@ -12,10 +14,26 @@ describe FillUp do
       :grade => "87",
       :elapsed_miles => "100"
     }
+    @fillup = FillUp.new
   end
 
   it "should create a new instance given valid attributes" do
     FillUp.create!(@valid_attributes)
+  end
+  
+  it "should calculate Miles Per Gallon" do
+    @fillup.attributes = @valid_attributes
+    @fillup.elapsed_miles.should be_close(@fillup.miles_per_gallon * @fillup.gallons, DELTA)
+  end
+  
+  it "should calculate Cost Per Mile" do
+    @fillup.attributes = @valid_attributes
+    @fillup.cost.cents.should be_close(@fillup.cost_per_mile.cents * @fillup.elapsed_miles, 1.0)
+  end
+  
+  it "should calculate Cost Per Gallon" do
+    @fillup.attributes = @valid_attributes
+    @fillup.cost.cents.should be_close(@fillup.cost_per_gallon * @fillup.gallons, 1.0)
   end
 end
 

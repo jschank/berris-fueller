@@ -13,11 +13,11 @@ class FillUp < ActiveRecord::Base
   end
   
   def cost_per_mile
-    cost / elapsed_miles.to_f
+    Money.create_from_cents(cost.cents / elapsed_miles)
   end
   
   def cost_per_gallon
-    cost / gallons.to_f
+    cost.cents / gallons
   end
 
   def self.previous_fill_up(vehicle, odometer)
