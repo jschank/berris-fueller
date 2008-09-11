@@ -125,29 +125,6 @@ A:hover
 	background: #F3E7A9;
 }
 
-#flash_notice, #flash_error 
-{
-	font-family: verdana, helvetica, sans-serif;
-	font-size: 14px;
-	padding: 5px 8px;
-	margin: 10px 0;
-}
-
-#flash_notice 
-{
-	background-color: #CFC;
-	border: solid 3px #6C6;
-	color: #6C6;
-}
-
-#flash_error 
-{
-	background-color: #FCC;
-	border: solid 3px #C66;
-	color: #C66;
-}
-
-
 #errorExplanation 
 {
 	width: 100%;

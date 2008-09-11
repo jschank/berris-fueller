@@ -11,6 +11,19 @@ class Vehicle < ActiveRecord::Base
     return miles
   end
   
+  def total_gallons
+    fill_ups.inject(0) { |sum, fillup| sum + fillup.gallons}
+  end
+  
+  def total_fuel_cost
+    total_cents = fill_ups.inject(0) { |sum, fillup| sum + fillup.cost.cents }
+    Money.create_from_cents(total_cents)
+  end
+  
+  def overall_miles_per_gallon
+    current_miles / total_gallons
+  end
+  
   def to_param
     "#{id}-#{name.gsub(/\W/, '-').downcase}"
   end

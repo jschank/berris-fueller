@@ -18,7 +18,7 @@ class FillUpsController < ApplicationController
 
     respond_to do |format|
       if @fill_up.save
-        flash[:notice] = 'Fill up was successfully created.'
+        flash[:success] = 'Fill up was successfully created.'
         format.html { redirect_to(vehicles_path) }
         format.xml  { render :xml => @fill_up, :status => :created, :location => @fill_up }
       else
@@ -49,7 +49,7 @@ class FillUpsController < ApplicationController
 
         new_next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
         new_next_fill_up.save unless new_next_fill_up.nil? || new_next_fill_up.id == @fill_up.id
-        flash[:notice] = 'Fill up was successfully updated.'
+        flash[:success] = 'Fill up was successfully updated.'
         format.html { redirect_to(@vehicle) }
         format.xml  { head :ok }
       else
@@ -100,7 +100,7 @@ class FillUpsController < ApplicationController
           end
         end
 
-        flash[:notice] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
+        flash[:success] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
         respond_to do |format|
           format.html { redirect_to(@vehicle) }
           format.xml  { head :ok }

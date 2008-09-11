@@ -44,7 +44,7 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        flash[:notice] = 'Vehicle was successfully created.'
+        flash[:success] = 'Vehicle was successfully created.'
         format.html { redirect_to(@vehicle) }
         format.xml  { render :xml => @vehicle, :status => :created, :location => @vehicle }
       else
@@ -61,7 +61,7 @@ class VehiclesController < ApplicationController
       if @vehicle.update_attributes(params[:vehicle])
         first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0] unless @vehicle.fill_ups.size == 0
         first_fill_up.save unless first_fill_up.nil?
-        flash[:notice] = 'Vehicle was successfully updated.'
+        flash[:success] = 'Vehicle was successfully updated.'
         format.html { redirect_to(@vehicle) }
         format.xml  { head :ok }
       else

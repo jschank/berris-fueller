@@ -1,4 +1,5 @@
-<h3>Fill Ups</h3>
+<% if @vehicle.fill_ups.size > 0 %>
+<h3>Fill Up History</h3>
 <table>
   <tr valign="top">
     <th>Date</th>
@@ -28,3 +29,4 @@
 	</tr>
 	<% end %>
 </table>
+<% end %>

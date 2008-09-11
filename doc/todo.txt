@@ -1,10 +1,15 @@
+todo: Add summary data for vehicles - total dollars spent, overall MPG
+
+todo: Deploy to schankopolis using capistrano.
+
 todo: Add users and sessions, require login, Try using restful_authentication or acts_as_authenticated.
 
 todo: Add photo upload for vehicles
 
-todo: Add summary data for vehicles - total dollars spent, overall MPG
-
-todo: Add a savings calculation - enter a hypothetical MPG - show the dollar savings or expense over the total miles at that MPG
+todo: Add a savings calculation 
+			- Enter a hypothetical MPG 
+			- Show the dollar savings or expense over the total miles at that MPG
+			- Be sure that the hypothetical mileage is applied to each fill up, because gas prices fluctuate.
 
 todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
 
@@ -18,7 +23,5 @@ todo: Find icons and images for concepts, a gas pump for refuel link.
 todo: Add csv export.
 
 todo: Add xml dump.
-
-todo: Deploy to schankopolis using capistrano.
 
 todo: RSpec - figure out where/how to spec behaviors added by controllers. 

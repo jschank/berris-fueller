@@ -1,0 +1,157 @@
+light_red
+{
+	background-color: #fcc;
+}
+
+red
+{
+	background-color: #f99;
+}
+
+dark_red
+{
+	background-color: #bf4c4c;
+}
+
+light_orange
+{
+	background-color: #ffe5cc;
+}
+
+orange
+{
+	background-color:  #fc9;
+}
+
+dark_orange
+{
+	background-color: #bf854c;
+}
+
+light_yellow
+{
+	background-color: #ffc;
+}
+
+yellow
+{
+	background-color: #ff9;
+}
+
+dark_yellow
+{
+	background-color: #bfbf4c;
+}
+
+light_green
+{
+	background-color: #cfc;	
+} 
+
+green
+{
+	background-color: #9f9;	
+} 
+
+dark_green
+{
+	background-color: #4cbf4c;	
+} 
+
+light_blue
+{
+	background-color: #cce5ff;
+}
+
+blue
+{
+	background-color:  #9cf;
+}
+
+dark_blue
+{
+	background-color: #4c85bf;
+}
+
+light_indigo
+{
+	background-color: #e5ccff
+}
+
+indigo
+{
+	background-color: #c9f
+}
+
+dark_indigo
+{
+	background-color: #854cbf
+}
+
+
+brown
+{	
+	background-color: #654;
+}
+
+tan
+{
+	background-color: #ca6;
+}
+
+#flash_notice, 
+#flash_error, 
+#flash_success, 
+#flash_warning, 
+#flash_info,
+#flash_announce,
+#flash_highlight
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 14px;
+	padding: 5px 8px;
+	margin: 10px 0;
+	border: solid 3px;
+}
+
+#flash_success 
+{
+	background-color: #CFC;
+	border-color: #9f9;
+	color: #4cbf4c
+}
+
+#flash_error 
+{
+	background-color: #FCC;
+	border-color: #f99;
+	color: #bf4c4c;
+}
+
+#flash_warning
+{	
+	background-color: #ffe5cc;
+	border-color: #fc9;
+	color: #bf854c;	
+}
+
+#flash_info
+{
+	background-color: #cce5ff;
+	border-color: #9cf;
+	color: #4c85bf;	
+}
+
+#flash_highlight
+{
+	background-color: #ff9;
+	border-color: #bfbf4c;
+	color: gray;	
+}
+
+#flash_announce
+{
+	background-color: #e5ccff;
+	border-color: #c9f;
+	color: #854cbf;	
+}

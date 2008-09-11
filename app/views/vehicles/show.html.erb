@@ -5,6 +5,8 @@
 	<li><%= link_to 'Import Fill Ups', import_fill_ups_path(@vehicle) %></li>
 	<li><%= link_to 'Back', vehicles_path %></li>
 <% end %>
+
+<div style="float:left">
 <p>
   <b>Make:</b>
   <%=h @vehicle.make %>
@@ -24,17 +26,35 @@
   <b>Original Miles:</b>
   <%=h @vehicle.miles %>
 </p>
+</div>
 
 <% if @vehicle.current_miles != @vehicle.miles %>
-<p>
-  <b>Current Miles:</b>
-  <%= @vehicle.current_miles %>
-</p>
+<div style="float:right">
+	<p>
+		<b>Overall MPG</b>
+		<%= "%.1f" % @vehicle.overall_miles_per_gallon %>
+	</p>
+
+	<p>
+		<b>Total Fuel Used:</b>
+		<%= @vehicle.total_gallons %> gal.
+	</p>
+
+	<p>
+		<b>Total Fuel Cost:</b>
+		<%= @vehicle.total_fuel_cost %>
+	</p>
+
+	<p>
+	  <b>Total Miles:</b>
+	  <%= @vehicle.current_miles %>
+	</p>
+</div>
+<br clear="all" />
 <% end %>
 
-<% if @vehicle.fill_ups.size > 0 %>
 <%= render :partial => 'vehicle_fill_up', :locals => {:fill_ups => @vehicle.fill_ups, :vehicle => @vehicle  } %>
-<% end %>
+
 
 
 
