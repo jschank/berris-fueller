@@ -24,6 +24,16 @@ class Vehicle < ActiveRecord::Base
     current_miles / total_gallons
   end
   
+  def savings_vs_hypothetcial_mpg(mpg)
+    total_cents = fill_ups.inject(0) do |sum, fillup|
+      gallons = fillup.elapsed_miles / mpg
+      cost_cents = gallons * fillup.cost_per_gallon
+      savings = cost_cents - fillup.cost.cents
+      sum + savings
+    end
+    Money.create_from_cents(total_cents)
+  end
+  
   def to_param
     "#{id}-#{name.gsub(/\W/, '-').downcase}"
   end

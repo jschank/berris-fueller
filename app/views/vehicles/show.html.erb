@@ -51,6 +51,12 @@
 	</p>
 </div>
 <br clear="all" />
+<hr />
+<p>
+	<b>Savings over hypothetical 25 MPG vehicle:</b>
+	<%= @vehicle.savings_vs_hypothetcial_mpg(25) %>
+</p>
+<hr />
 <% end %>
 
 <%= render :partial => 'vehicle_fill_up', :locals => {:fill_ups => @vehicle.fill_ups, :vehicle => @vehicle  } %>
