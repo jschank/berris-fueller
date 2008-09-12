@@ -1,13 +1,12 @@
 todo: Deploy to schankopolis using capistrano.
 
 todo: Add users and sessions, require login, Try using restful_authentication or acts_as_authenticated.
+	- Only need login to create vehicles, refuel, edit, or destroy.
+	- Show is open to public
 
 todo: Add photo upload for vehicles
 
-todo: Add a savings calculation 
-			- Enter a hypothetical MPG 
-			- Show the dollar savings or expense over the total miles at that MPG
-			- Be sure that the hypothetical mileage is applied to each fill up, because gas prices fluctuate.
+todo: Add a savings calculation, using a form to enter the hypothetical MPG
 
 todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
 
