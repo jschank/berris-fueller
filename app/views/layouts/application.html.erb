@@ -16,18 +16,23 @@
 			<div id='page_header'>
 				<h1>Berris Fueller</h1>
 				<h2><%= h yield(:title) %></h2>
+				<% if logged_in? %>
+				<p>Logged in as: <%= link_to_user current_user %>&nbsp;|&nbsp;<%= link_to "Log out", logout_path %></p>
+				<% end %>
 			</div>
 
 			<div id='menu_bar'>
-
-			<div id="navcontainer">
-			<ul id="navlist">
-			<!-- <li id="active"><a href="#" id="current">Item one</a></li> -->
-			<li><%= link_to "Home", vehicles_path %></li>
-			<%= yield(:navigation) %>
-			</ul>
-			</div>
-
+				<div id="navcontainer">
+					<ul id="navlist">
+					<!-- <li id="active"><a href="#" id="current">Item one</a></li> -->
+					<% if logged_in? %>
+						<li><%= link_to "My Vehicles", vehicles_path %></li>
+					<% else %>
+						<li><%= link_to "Sign up", signup_path %></li>
+					<% end %>
+					<%= yield(:navigation) %>
+					</ul>
+				</div>
 			</div>
 			
 			<div id='content_wrapper'>
