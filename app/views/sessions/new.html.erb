@@ -1,16 +1,24 @@
-<h1>Log In</h1>
+<% title 'Log In' %>
 
 <% form_tag session_path do -%>
-<p><%= label_tag 'login' %><br />
-<%= text_field_tag 'login', @login %></p>
+	<table style="border-collapse: collapse; border: none">
+		<tr>
+			<td width="100px" style="border-collapse: collapse; border: none"><%= label_tag 'User name:' %></td>
+			<td style="border-collapse: collapse; border: none"><%= text_field_tag 'login', @login %></td>
+		</tr>
+		
+		<tr>
+			<td style="border-collapse: collapse; border: none"><%= label_tag 'Password:' %></td>
+			<td style="border-collapse: collapse; border: none"><%= password_field_tag 'password', nil %></td>
+		</tr>
+		<tr>
+			<td style="border-collapse: collapse; border: none"><%= label_tag 'remember_me', 'Remember me:' %></td>
+			<td style="border-collapse: collapse; border: none"><%= check_box_tag 'remember_me', '1', @remember_me %></td>
+		</tr>		
 
-<p><%= label_tag 'password' %><br/>
-<%= password_field_tag 'password', nil %></p>
-
-<!-- Uncomment this if you want this functionality
-<p><%= label_tag 'remember_me', 'Remember me' %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
--->
-
-<p><%= submit_tag 'Log in' %></p>
+	</table>
+	<p>
+		<%= submit_tag 'Log in' %>
+	</p>
 <% end -%>
+
