@@ -1,4 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  #  map.resources :users
+  map.resources :users, :member => { :suspend   => :put,
+                                     :unsuspend => :put,
+                                     :purge     => :delete }
+  map.resource :session
+
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.register '/register', :controller => 'users', :action => 'create'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+
   map.import_fill_ups '/vehicles/:vehicle_id/fill_ups/import', :controller => 'fill_ups', :action => 'import'
   map.upload_fill_ups '/vehicles/:vehicle_id/fill_ups/upload', :controller => 'fill_ups', :action => 'upload'
 
