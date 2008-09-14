@@ -114,6 +114,7 @@ tan
 	border: solid 3px;
 }
 
+#flash_notice,
 #flash_success 
 {
 	background-color: #CFC;
