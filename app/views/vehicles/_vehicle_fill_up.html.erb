@@ -24,7 +24,7 @@
 		<td align="right"><%=sprintf("%3.1f", fill_up.miles_per_gallon) %></td>
 	  <td>
 			<%= link_to 'Edit', edit_vehicle_fill_up_path(vehicle, fill_up) %>&nbsp;
-			<%= link_to 'Destroy', vehicle_fill_up_path(vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'Remove', vehicle_fill_up_path(vehicle, fill_up), :confirm => 'Are you sure?', :method => :delete %>
 		</td>
 	</tr>
 	<% end %>
