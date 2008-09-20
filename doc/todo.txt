@@ -1,31 +1,35 @@
-todo: Create a user profile edit page.
-
-todo: Add a bunch of fields to the user profile: Name ... ?
-
-todo: Add prototype and script.aculo.us to automatically fade the flash notices.
-
-todo: Add sass to create the Basic.css stylesheet using named constants for colors.
-
-todo: Use colors from the Visibone color palette when it arrives.
-
-todo: Attach vehicles to users - so that a user has a collection of vehicles.
-
-todo: Deploy to schankopolis using capistrano.
-
-todo: Add users and sessions, require login, Try using restful_authentication or acts_as_authenticated.
-	- Only need login to create vehicles, refuel, edit, or destroy.
-	- Show is open to public
-
-todo: Add photo upload for vehicles
-
-todo: Add a savings calculation, using a form to enter the hypothetical MPG
-
-todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
-
 todo: Add charts to app.
 			- A plot of Miles per gallon vs date
 			- A plot of cost per mile vs date
 			- A plot of cost per gallon vs date
+
+todo: Create a user profile edit page.
+
+todo: Add a bunch of fields to the user profile: Name ... ?
+
+todo: Attach vehicles to users - so that a user has a collection of vehicles.
+
+todo: Add sass to create the Basic.css stylesheet using named constants for colors.
+
+todo: Add photo upload for vehicles
+
+todo: Format the right hand part of the vehicle show to be prettier:
+	- Use rounded corners.
+	- Use a bezel or Hud like box
+	- Make the MPG ginormous
+	- Make the Total Fuel larger
+	- Make the Total cost larger
+	- Make the Total Miles look like an odometer display
+	- Add icons for Money, Fuel gallons, Fuel MPG
+	- Left half should be a picture region (even if it is a silhouette)
+
+todo: Add a savings calculation, using an Ajaxy form to enter the hypothetical MPG
+
+todo: Use colors from the Visibone color palette when it arrives.
+
+todo: Deploy to schankopolis using capistrano.
+
+todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
 
 todo: Find icons and images for concepts, a gas pump for refuel link.
 
@@ -33,4 +37,6 @@ todo: Add csv export.
 
 todo: Add xml dump.
 
-todo: RSpec - figure out where/how to spec behaviors added by controllers. 
+todo: RSpec - figure out where/how to spec behaviors added by controllers.
+
+todo: Refactor - Convert the script in the main layout to use RJS. 
