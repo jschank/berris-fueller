@@ -38,6 +38,9 @@
 			<div id='content_wrapper'>
 	      <%- flash.select{|k,v| v.class == String}.each do |name, msg| -%>
 	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+				    <% content_tag :script, :type => "text/javascript" do %>
+				      setTimeout("new Effect.Fade('<%= "flash_#{name}" %>');", 5000);
+				    <% end %>
 	      <%- end -%>
 
 				<div class='spacer'></div>

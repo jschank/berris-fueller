@@ -2,8 +2,6 @@ todo: Create a user profile edit page.
 
 todo: Add a bunch of fields to the user profile: Name ... ?
 
-todo: Add new fill up link to show vehicle page.
-
 todo: Add prototype and script.aculo.us to automatically fade the flash notices.
 
 todo: Add sass to create the Basic.css stylesheet using named constants for colors.
