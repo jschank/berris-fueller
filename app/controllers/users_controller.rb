@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
-  before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
+  before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge, :show]
   
+
+  # GET /users/1
+  # GET /users/1.xml
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
 
   # render new.rhtml
   def new

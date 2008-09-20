@@ -28,3 +28,4 @@ config.action_mailer.smtp_settings =
   :password => "domo:arigato",
   :authentication => :login
 }
+

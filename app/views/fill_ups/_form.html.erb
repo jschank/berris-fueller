@@ -1,5 +1,6 @@
 <%= form.error_messages %>
 <% field_set_tag "Fill Up Details" do %>
+	<%= hidden_field_tag :redirect_to, params[:redirect_to] %>
 	<%= form.date_select :date, :label => 'Date:', :required => true, :help => 'The date of the fill up.' %>
 	<%= form.text_field :odometer, :label => "Odometer:", :required => true, :help => 'The odometer reading at the time of fill up.' %>
 	<%= form.text_field :cost, :label => "Cost:",  :required => true, :help => 'The cost of the fill up.' %>

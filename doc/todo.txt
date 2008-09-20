@@ -1,3 +1,17 @@
+todo: Create a user profile edit page.
+
+todo: Add a bunch of fields to the user profile: Name ... ?
+
+todo: Add new fill up link to show vehicle page.
+
+todo: Add prototype and script.aculo.us to automatically fade the flash notices.
+
+todo: Add sass to create the Basic.css stylesheet using named constants for colors.
+
+todo: Use colors from the Visibone color palette when it arrives.
+
+todo: Attach vehicles to users - so that a user has a collection of vehicles.
+
 todo: Deploy to schankopolis using capistrano.
 
 todo: Add users and sessions, require login, Try using restful_authentication or acts_as_authenticated.

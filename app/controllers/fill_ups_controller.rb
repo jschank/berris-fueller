@@ -15,11 +15,11 @@ class FillUpsController < ApplicationController
 
   def create
     @fill_up = @vehicle.fill_ups.build params[:fill_up]
-
+    params[:redirect_to] ||= vehicles_path
     respond_to do |format|
       if @fill_up.save
         flash[:success] = 'Fill up was successfully created.'
-        format.html { redirect_to(vehicles_path) }
+        format.html { redirect_to( params[:redirect_to]) }
         format.xml  { render :xml => @fill_up, :status => :created, :location => @fill_up }
       else
         format.html { render :action => "new" }

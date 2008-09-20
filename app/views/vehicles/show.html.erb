@@ -2,6 +2,7 @@
 
 <% content_for :navigation do %>
 	<li><%= link_to 'Edit', edit_vehicle_path(@vehicle) %></li>
+	<li><%= link_to 'Add Fill Up', new_vehicle_fill_up_path(@vehicle, :redirect_to => vehicle_path(@vehicle)) %></li>  
 	<li><%= link_to 'Import Fill Ups', import_fill_ups_path(@vehicle) %></li>
 	<li><%= link_to 'Back', vehicles_path %></li>
 <% end %>
