@@ -17,6 +17,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.xml
   def show
+    @mpg_chart = open_flash_chart_object(640, 480, mpg_chart_path(@vehicle))
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vehicle }

@@ -58,6 +58,8 @@
 	<%= @vehicle.savings_vs_hypothetical_mpg(25) %>
 </p>
 <hr />
+<%= @mpg_chart %>
+<hr />
 <% end %>
 
 <%= render :partial => 'vehicle_fill_up', :locals => {:fill_ups => @vehicle.fill_ups, :vehicle => @vehicle  } %>
