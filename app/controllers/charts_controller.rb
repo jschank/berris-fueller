@@ -1,12 +1,48 @@
 class ChartsController < ApplicationController
+  before_filter :login_required
 
   def mpg_chart_code
-      title = Title.new("MY TITLE")
-      bar = BarGlass.new
-      bar.set_values([1,2,3,4,5,6,7,8,9])
+      @vehicle = Vehicle.find(params[:vehicle_id])
+      
+      title = Title.new("MPG")
+
+      line = LineHollow.new
+      line.width = 1
+      line.colour = '#6363AC'
+      line.dot_size = 5
+      line.values = @vehicle.fill_ups.collect {|fillup| fillup.miles_per_gallon }
+      
+      avg_line = Line.new
+      avg_line.width = 2
+      avg_line.colour = '#99CC33'
+      avg_line.values = [@vehicle.overall_miles_per_gallon] * @vehicle.fill_ups.size
+      
+      x_labels = XAxisLabels.new
+      x_labels.set_vertical()
+      x_labels.labels = @vehicle.fill_ups.collect {|fillup| XAxisLabel.new(fillup.date.to_s, '#0000ff', 10, 'vertical')}
+
+      x = XAxis.new
+      x.set_labels(x_labels)
+
+      x_legend = XLegend.new("Refuel Date")
+      x_legend.set_style('{font-size: 20px; color: #778877}')
+      
+      y = YAxis.new
+      y.set_range(30, 50, 5)
+      
+      y_legend = YLegend.new("Miles Per Gallon")
+      y_legend.set_style('{font-size: 20px; color: #770077}')
+      
       chart = OpenFlashChart.new
       chart.set_title(title)
-      chart.add_element(bar)
+      chart.set_x_legend(x_legend)
+      chart.set_y_legend(y_legend)
+      chart.x_axis = x
+      chart.y_axis = y
+      
+      chart.add_element(line)
+      chart.add_element(avg_line)
+      
       render :text => chart.to_s
     end
 
