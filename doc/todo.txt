@@ -1,7 +1,5 @@
 todo: Add charts to app.
-			- A plot of Miles per gallon vs date
 			- A plot of cost per mile vs date
-			- A plot of cost per gallon vs date
 
 todo: Create a user profile edit page.
 
