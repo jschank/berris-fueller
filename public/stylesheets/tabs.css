@@ -67,6 +67,11 @@ background: #fff;
 border: 1px solid #dedbd1;
 }
 */
+.ui-tabs-nav
+{
+	font-family: inherit;
+	font-size: 80%;
+}
 
 .ui-tabs-hide 
 {

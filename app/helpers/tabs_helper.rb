@@ -26,13 +26,13 @@ module TabsHelper
     end
     
     def render
-      content_tag( :div, ( render_tabs + render_bodies ), { :id => :tabs }.merge( @options ) )
+      content_tag( :div, ( render_tabs + render_bodies ), { :id => :tabs, :class => "ui-tabs-nav" }.merge( @options ) )
     end
     
     private #  ---------------------------------------------------------------------------
     
     def render_tabs
-      content_tag(:ul, {:class => "ui-tabs-nav"}) do
+      content_tag(:ul) do
         @tabs.collect do |tab|
           content_tag( :li, link_to( content_tag( :span, tab[1] ), "##{tab[0]}" ), { :class => "ui-tabs-nav-item"  } )
         end
