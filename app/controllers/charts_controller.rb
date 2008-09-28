@@ -69,7 +69,7 @@ class ChartsController < ApplicationController
 
         # todo: this should be dynamic at 0.25 less than the minimum fill up to 0.25 greater than maximum.
         y = YAxis.new
-        y.set_range(2, 5, 0.25)
+        y.set_range(2.00, 5.00, 0.25)
 
         y_legend = YLegend.new("Cost Per Gallon")
         y_legend.set_style('{font-size: 20px; color: #770077}')
