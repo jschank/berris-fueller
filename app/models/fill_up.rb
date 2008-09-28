@@ -17,7 +17,7 @@ class FillUp < ActiveRecord::Base
   end
   
   def cost_per_gallon
-    cost.cents / gallons
+    Money.create_from_cents(cost.cents / gallons)
   end
 
   def self.previous_fill_up(vehicle, odometer)

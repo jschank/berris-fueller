@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.upload_fill_ups '/vehicles/:vehicle_id/fill_ups/upload', :controller => 'fill_ups', :action => 'upload'
 
   map.mpg_chart '/vehicles/:vehicle_id/charts/mpg_chart', :controller => "charts", :action => "mpg_chart_code"
+  map.cpg_chart '/vehicles/:vehicle_id/charts/cpg_chart', :controller => "charts", :action => "cpg_chart_code"
 
   map.resources :vehicles, :has_many => :fill_ups
 

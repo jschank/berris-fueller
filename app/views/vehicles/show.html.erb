@@ -62,9 +62,14 @@
 	  <% tab.create('table', 'Fill Up Table'  ) do %>
 			<%= render :partial => 'vehicle_fill_up', :locals => {:fill_ups => @vehicle.fill_ups, :vehicle => @vehicle  } %>
 	  <% end %>
-	  <% tab.create('mpg_chart', 'MPG Chart' ) do %>
+	  <% tab.create('mpg_chart', 'miles/gal Chart' ) do %>
 			<div align="center">
 				<%= @mpg_chart %>
+			</div>
+	  <% end %>
+	  <% tab.create('cpg_chart', '$/gal Chart' ) do %>
+			<div align="center">
+				<%= @cpg_chart %>
 			</div>
 	  <% end %>
 	<% end %>

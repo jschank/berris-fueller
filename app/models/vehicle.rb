@@ -27,7 +27,7 @@ class Vehicle < ActiveRecord::Base
   def savings_vs_hypothetical_mpg(mpg)
     total_cents = fill_ups.inject(0) do |sum, fillup|
       gallons = fillup.elapsed_miles / mpg
-      cost_cents = gallons * fillup.cost_per_gallon
+      cost_cents = gallons * (fillup.cost_per_gallon.cents)
       savings = cost_cents - fillup.cost.cents
       sum + savings
     end
