@@ -1,0 +1,80 @@
+/*
+ui-tabs-nav 
+This is the whole menu. Use this as a base class.
+
+ui-tabs-selected 
+This is the current tab. It's very important to create a strong visual indication which tab is the current one.
+
+ui-tabs-unselect 
+This is the class for all the tabs that are not selected but selectable.
+
+ui-tabs-disabled 
+For when a tab is disabled. Highly recommended to appear somewhat transparent or disabled. This is often done by graying the color.
+
+ui-tabs-panel 
+These are the boxes that will have their visibility toggled.
+
+ui-tabs-hide 
+This class hides the boxes (perhaps the most important class)
+
+<span> The span tags are there to give freedom to tricks like rounded corners and resizable backgrounds.
+*/
+
+/*.ui-tabs-nav li 
+{
+display: inline;
+list-style: none;
+padding-right: 5px;
+}
+
+.ui-tabs-nav .ui-tabs-selected
+{
+	color: #000;
+}
+
+.ui-tabs-nav .ui-tabs-unselect
+{
+	color: #0f0;
+}
+
+.ui-tabs-nav li a 
+{
+text-decoration: none;
+text-transform: uppercase;
+color: #222;
+font-weight: bold;
+padding: 4px 6px;
+outline: none;
+}
+
+.ui-tabs-nav .ui-tabs-nav li a:active, .ui-tabs-nav li.ui-tabs-selected a 
+{
+background: #dedbff;
+color: #222;
+text-decoration: none;
+}
+
+.ui-tabs-nav li a:hover
+{
+background: #f88;
+color: #222;
+text-decoration: none;
+}
+
+.ui-tabs-panel 
+{
+background: #fff;
+border: 1px solid #dedbd1;
+}
+*/
+
+.ui-tabs-hide 
+{
+display: none;
+}
+
+.ui-tabs-panel
+{
+	margin: 0px;
+	padding: 0px;
+}
