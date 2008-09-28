@@ -112,6 +112,7 @@ tan
 	padding: 5px 8px;
 	margin: 10px 0;
 	border: solid 3px;
+	display: none;
 }
 
 #flash_notice,

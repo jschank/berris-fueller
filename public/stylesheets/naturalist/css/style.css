@@ -272,38 +272,6 @@ A:hover
 	display: inline;
 }
 
-
-/*#right_side 
-{
-	float: right;
-	width: 150px;
-}
-
-#right_side h3 
-{
-	margin-right: 10px;
-	margin-bottom: 5px;
-	font-family: verdana;
-	font-size: 12px;
-	font-weight: bold;
-	line-height: 16px;
-	color: #FCF8E3;
-	background: #595A38;
-	padding: 4px;
-	border: 1px solid #3A3B22;
-}
-
-#right_side p 
-{
-	margin: 5px;
-	margin-bottom: 15px;
-	padding-right: 10px;
-	font-family: verdana;
-	font-size: 11px;
-	line-height: 16px;
-	color: #333333;
-}*/
-
 #page_footer 
 {
 	height: 70px;

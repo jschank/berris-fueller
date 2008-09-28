@@ -42,38 +42,13 @@
 			
 			<div id='content_wrapper'>
 	      <%- flash.select{|k,v| v.class == String}.each do |name, msg| -%>
-	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-						<script type="text/javascript">
-			      	setTimeout("new Effect.Fade('<%= "flash_#{name}" %>');", 5000);
-						</script>
+	        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "flash" %>
 	      <%- end -%>
 
 				<div class='spacer'></div>
 				<div id='left_side'>
 					<%= yield %>
 				</div>
-
-				<!-- <div id='right_side'>
-
-				<h3>Right Side</h3>
-				<p>
-				<a href='#'>Lorem ipsum</a> ferri volumus et his. Pri vitae tritani corrumpit 
-				an. In fabulas adipisci accommodare quo, tibique epicurei cu 
-				mel, habeo adhuc <a href='#'>scripta</a> nam at. <a href='#'>Aliquam dissentias</a> 
-				te nec, his ei rebum prodesset. Eam cibo tation ceteros ut, cum solet accumsan 
-				ad. An per commune posidonium, ea est populo dicunt.
-				</p>
-
-				<h3>Right Side</h3>
-				<p>
-				Ea vis verear omittam appetere. <a href='#'>Laudem accusam takimata</a> ea est, 
-				eu delenit eligendi mediocrem mei. Mea at <a href='#'>malorum</a> invenire 
-				urbanitas. Ei sea novum petentium deseruisse. Vero delectus efficiantur ei nec, 
-				amet tollit consetetur eos ut. Ea vis verear omittam appetere. <a href='#'>
-				Laudem accusam takimata</a>
-				</p>
-
-				</div> -->
 
 				<div class='spacer'></div>
 
