@@ -19,6 +19,7 @@ class VehiclesController < ApplicationController
   def show
     @mpg_chart = open_flash_chart_object(630, 400, mpg_chart_path(@vehicle))
     @cpg_chart = open_flash_chart_object(630, 400, cpg_chart_path(@vehicle))
+    @cpm_chart = open_flash_chart_object(630, 400, cpm_chart_path(@vehicle))
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vehicle }

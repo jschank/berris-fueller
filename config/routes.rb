@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.mpg_chart '/vehicles/:vehicle_id/charts/mpg_chart', :controller => "charts", :action => "mpg_chart_code"
   map.cpg_chart '/vehicles/:vehicle_id/charts/cpg_chart', :controller => "charts", :action => "cpg_chart_code"
+  map.cpm_chart '/vehicles/:vehicle_id/charts/cpm_chart', :controller => "charts", :action => "cpm_chart_code"
 
   map.resources :vehicles, :has_many => :fill_ups
 

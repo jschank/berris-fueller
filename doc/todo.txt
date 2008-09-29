@@ -1,11 +1,8 @@
-todo: Add charts to app.
-			- A plot of cost per mile vs date
+todo: Attach vehicles to users - so that a user has a collection of vehicles.
 
 todo: Create a user profile edit page.
 
 todo: Add a bunch of fields to the user profile: Name ... ?
-
-todo: Attach vehicles to users - so that a user has a collection of vehicles.
 
 todo: Add sass to create the Basic.css stylesheet using named constants for colors.
 
