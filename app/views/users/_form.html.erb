@@ -1,0 +1,10 @@
+<%= error_messages_for :user %>
+<%= form.error_messages %>
+<% field_set_tag "Fill Up Details" do %>
+
+<%= form.text_field :login, :label => 'Login Name:', :required => true, :help => "The user's login name" %>
+<%= form.text_field :email, :label => 'email:', :required => true, :help => "Activation message will be sent here" %>
+<%= form.password_field :password, :label => 'Password:', :required => true %>
+<%= form.password_field :password_confirmation, :label => 'Confirm Password:', :required => true %>
+<%= form.submit("Sign up") %>
+<% end %>
