@@ -2,7 +2,10 @@ ActionController::Routing::Routes.draw do |map|
   #  map.resources :users
   map.resources :users, :has_many => :vehicles, :member => { :suspend   => :put,
                                                              :unsuspend => :put,
-                                                             :purge     => :delete }
+                                                             :purge     => :delete } do |users|
+    users.resources :vehicles, :has_many => :fill_ups
+  end
+  
   map.resource :session
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'

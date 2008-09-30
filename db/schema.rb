@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20080914000257) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "vehicles", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name",       :limit => 64,                :null => false
     t.string   "make",       :limit => 32
     t.string   "model",      :limit => 32

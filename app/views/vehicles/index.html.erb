@@ -1,7 +1,7 @@
 <% title "Vehicles" %>
 
 <% content_for :navigation do %>
-	<li><%= link_to 'New vehicle', new_vehicle_path %></li>
+	<li><%= link_to 'New vehicle', new_user_vehicle_path(@current_user) %></li>
 <% end %>
 
 <table>
@@ -21,10 +21,10 @@
     <td><%=h vehicle.model %></td>
     <td><%=h vehicle.year %></td>
     <td><%=h vehicle.current_miles %></td>
-    <td><%= link_to 'Show', vehicle %>&nbsp;
-    <%= link_to 'Edit', edit_vehicle_path(vehicle) %>&nbsp;
-    <%= link_to 'Destroy', vehicle, :confirm => 'Are you sure?', :method => :delete %>&nbsp;
-    <%= link_to 'Refuel', new_vehicle_fill_up_path(vehicle, :redirect_to => vehicles_path) %></td>
+    <td><%= link_to 'Show', user_vehicle(@current_user) %>&nbsp;
+    <%= link_to 'Edit', edit_user_vehicle_path(@current_user, vehicle) %>&nbsp;
+    <%= link_to 'Destroy', user_vehicle(@current_user), :confirm => 'Are you sure?', :method => :delete %>&nbsp;
+    <%= link_to 'Refuel', new_user_vehicle_fill_up_path(@current_user, vehicle, :redirect_to => user_vehicles_path) %></td>
   </tr>
 <% end %>
 </table>

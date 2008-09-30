@@ -31,7 +31,7 @@
 					<ul id="navlist">
 					<!-- <li id="active"><a href="#" id="current">Item one</a></li> -->
 					<% if logged_in? %>
-						<li><%= link_to "My Vehicles", vehicles_path %></li>
+						<li><%= link_to "My Vehicles", user_vehicles_path(@current_user) %></li>
 					<% else %>
 						<li><%= link_to "Sign up", signup_path %></li>
 					<% end %>

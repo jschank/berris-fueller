@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.xml
   def index
-    @vehicles = @user.vehicles
+    @vehicles = @current_user.vehicles
 
     respond_to do |format|
       format.html # index.html.erb
