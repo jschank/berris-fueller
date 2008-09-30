@@ -1,6 +1,7 @@
 class CreateVehicles < ActiveRecord::Migration
   def self.up
     create_table :vehicles do |t|
+      t.integer :user_id
       t.string :name, :limit => 64, :null => false 
       t.string :make, :limit => 32
       t.string :model, :limit => 32

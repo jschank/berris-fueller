@@ -1,4 +1,5 @@
 class Vehicle < ActiveRecord::Base
+  belongs_to :user
   has_many :fill_ups, :order => 'odometer ASC'
   validates_presence_of :name, :make, :model, :year, :miles
   validates_length_of :year, :is => 4

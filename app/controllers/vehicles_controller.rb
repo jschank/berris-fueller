@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.xml
   def index
-    @vehicles = Vehicle.find(:all)
+    @vehicles = @user.vehicles
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles
   # POST /vehicles.xml
   def create
-    @vehicle = Vehicle.new(params[:vehicle])
+    @vehicle = @user.vehicles.build params[:vehicle]
 
     respond_to do |format|
       if @vehicle.save

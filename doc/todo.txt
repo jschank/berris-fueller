@@ -14,7 +14,7 @@ todo: Format the right hand part of the vehicle show to be prettier:
 	- Make the MPG ginormous
 	- Make the Total Fuel larger
 	- Make the Total cost larger
-	- Make the Total Miles look like an odometer display
+	- Make the Total Miles look like an odometer display - USE the odometer.js in public/javascripts
 	- Add icons for Money, Fuel gallons, Fuel MPG
 	- Left half should be a picture region (even if it is a silhouette)
 

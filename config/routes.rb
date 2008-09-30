@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   #  map.resources :users
-  map.resources :users, :member => { :suspend   => :put,
-                                     :unsuspend => :put,
-                                     :purge     => :delete }
+  map.resources :users, :has_many => :vehicles, :member => { :suspend   => :put,
+                                                             :unsuspend => :put,
+                                                             :purge     => :delete }
   map.resource :session
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.cpg_chart '/vehicles/:vehicle_id/charts/cpg_chart', :controller => "charts", :action => "cpg_chart_code"
   map.cpm_chart '/vehicles/:vehicle_id/charts/cpm_chart', :controller => "charts", :action => "cpm_chart_code"
 
-  map.resources :vehicles, :has_many => :fill_ups
+  # map.resources :vehicles, :has_many => :fill_ups
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -52,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :vehicles
+  map.root :controller => 'vehicles' 
   
   # See how all your routes lay out with "rake routes"
 
