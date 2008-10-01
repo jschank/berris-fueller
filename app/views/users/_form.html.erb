@@ -1,6 +1,6 @@
 <%= error_messages_for :user %>
 <%= form.error_messages %>
-<% field_set_tag "Fill Up Details" do %>
+<% field_set_tag "User Details" do %>
 
 <%= form.text_field :login, :label => 'Login Name:', :required => true, :help => "The user's login name" %>
 <%= form.text_field :email, :label => 'email:', :required => true, :help => "Activation message will be sent here" %>
