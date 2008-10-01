@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080914000257) do
+ActiveRecord::Schema.define(:version => 20081001012912) do
 
   create_table "fill_ups", :force => true do |t|
     t.integer  "vehicle_id"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20080914000257) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "vehicles", :force => true do |t|
-    t.integer  "user_id"
     t.string   "name",       :limit => 64,                :null => false
     t.string   "make",       :limit => 32
     t.string   "model",      :limit => 32
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20080914000257) do
     t.integer  "miles",                    :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
 end
