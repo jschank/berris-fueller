@@ -4,6 +4,6 @@ $(document).ready(function()
 	$('#tabs > ul').tabs({ fx: { height: 'toggle', opacity: 'toggle' } });
 	
 	// Animate the hiding of any flash elements...
-  $("div.flash").show("scale", {}, 1000);
+  $("div.flash").show("drop", { direction: "up"}, 1000);
 	setTimeout( function(){$("div.flash").hide("scale", {}, 1000);}, 5000);
 });
