@@ -65,7 +65,7 @@ class FillUpsController < ApplicationController
     @fill_up.destroy
     next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
     next_fill_up.save unless next_fill_up.nil?
-
+    flash[:success] 'Fill up was removed.'
     respond_to do |format|
       format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
       format.xml  { head :ok }

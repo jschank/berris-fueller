@@ -48,7 +48,7 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        flash[:success] = 'Vehicle was successfully created.'
+        flash[:success] = "#{@vehicle.name} was successfully created."
         format.html { redirect_to(user_vehicle_path(@current_user, @vehicle)) }
         format.xml  { render :xml => @vehicle, :status => :created, :location => @vehicle }
       else
@@ -65,7 +65,7 @@ class VehiclesController < ApplicationController
       if @vehicle.update_attributes(params[:vehicle])
         first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0] unless @vehicle.fill_ups.size == 0
         first_fill_up.save unless first_fill_up.nil?
-        flash[:success] = 'Vehicle was successfully updated.'
+        flash[:success] = "#{@vehicle.name} was successfully updated."
         format.html { redirect_to(user_vehicle_path(@current_user, @vehicle)) }
         format.xml  { head :ok }
       else
@@ -79,7 +79,7 @@ class VehiclesController < ApplicationController
   # DELETE /vehicles/1.xml
   def destroy
     @vehicle.destroy
-
+    flash[:success] = "#{@vehicle.name} was removed"
     respond_to do |format|
       format.html { redirect_to(user_vehicles_path(@current_user)) }
       format.xml  { head :ok }
