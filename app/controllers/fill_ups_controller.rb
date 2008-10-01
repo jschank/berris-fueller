@@ -67,7 +67,7 @@ class FillUpsController < ApplicationController
     next_fill_up.save unless next_fill_up.nil?
 
     respond_to do |format|
-      format.html { redirect_to(@vehicle) }
+      format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
       format.xml  { head :ok }
     end
   end

@@ -1,9 +1,9 @@
 <% title 'New Fill Up' %>
 
 <% content_for :navigation do %>
-	<li><%= link_to 'Back', vehicles_path %></li>
+	<li><%= link_to 'Back', user_vehicle_path(@current_user, @vehicle) %></li>
 <% end %>
 
-<% form_for([:vehicle, @fill_up]) do |f| %>
+<% form_for([:user, :vehicle, @fill_up]) do |f| %>
 	<%= render :partial => 'form', :object => f %>
 <% end %>
