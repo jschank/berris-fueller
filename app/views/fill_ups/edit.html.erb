@@ -1,9 +1,9 @@
 <% title "Editing Fill Up" %>
 
 <% content_for :navigation do %>
-	<li><%= link_to 'Back', @vehicle %></li>
+	<li><%= link_to 'Back', user_vehicle_path(@current_user, @vehicle) %></li>
 <% end %>
 
-<% form_for @fill_up, :url => vehicle_fill_up_path(@vehicle, @fill_up), :html => {:method => :put} do |f| %>
+<% form_for @fill_up, :url => user_vehicle_fill_up_path(@current_user, @vehicle, @fill_up), :html => {:method => :put} do |f| %>
 	<%= render :partial => 'form', :object => f %>
 <% end %>

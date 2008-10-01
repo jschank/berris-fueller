@@ -23,7 +23,7 @@ class FillUp < ActiveRecord::Base
   def self.previous_fill_up(vehicle, odometer)
     FillUp.find(
       :first, 
-      :order => "odometer DESC", 
+      :order => "odometer ASC", 
       :limit => 1, 
       :conditions => ["vehicle_id = :vehicle AND odometer < :odometer", {:vehicle => vehicle.id, :odometer => odometer }])
   end
@@ -42,7 +42,8 @@ class FillUp < ActiveRecord::Base
     if (self.vehicle.nil?)
       self.elapsed_miles = nil
     else
-      fill_up = FillUp.previous_fill_up(vehicle, odometer)
+      old_odometer = self.odometer_changed? ? self.odometer_was : self.odometer
+      fill_up = FillUp.previous_fill_up(vehicle, old_odometer)
       self.elapsed_miles = self.odometer - ( fill_up ? fill_up.odometer : self.vehicle.miles)
     end
   end  

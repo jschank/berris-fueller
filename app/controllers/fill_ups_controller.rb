@@ -51,11 +51,11 @@ class FillUpsController < ApplicationController
         new_next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
         new_next_fill_up.save unless new_next_fill_up.nil? || new_next_fill_up.id == @fill_up.id
         flash[:success] = 'Fill up was successfully updated.'
-        format.html { redirect_to(@vehicle) }
+        format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
         format.xml  { head :ok }
       else
         flash[:error] = 'Fill up update failed!'
-        format.html { redirect_to edit_vehicle_fill_up(@fill_up.vehicle_id, @fill_up) }
+        format.html { redirect_to edit_user_vehicle_fill_up_path(@current_user, @fill_up.vehicle_id, @fill_up) }
         format.xml  { render :xml => @fill_up.errors, :status => :unprocessable_entity }
       end
     end
@@ -125,7 +125,7 @@ class FillUpsController < ApplicationController
   end
   
   def find_fill_up
-    @fill_up = FillUp.find(params[:id])    
+    @fill_up = FillUp.find params[:id]
   end
   
 end
