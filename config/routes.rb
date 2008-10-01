@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.import_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/import', :controller => 'fill_ups', :action => 'import'
+  map.upload_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/upload', :controller => 'fill_ups', :action => 'upload'
+
   #  map.resources :users
   map.resources :users, :has_many => :vehicles, :member => { :suspend   => :put,
                                                              :unsuspend => :put,
@@ -13,9 +17,6 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
-
-  map.import_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/import', :controller => 'fill_ups', :action => 'import'
-  map.upload_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/upload', :controller => 'fill_ups', :action => 'upload'
 
   map.mpg_chart '/users/:user_id/vehicles/:vehicle_id/charts/mpg_chart', :controller => "charts", :action => "mpg_chart_code"
   map.cpg_chart '/users/:user_id/vehicles/:vehicle_id/charts/cpg_chart', :controller => "charts", :action => "cpg_chart_code"

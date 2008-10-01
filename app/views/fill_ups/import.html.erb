@@ -1,7 +1,7 @@
 <% title 'Import Fill Ups' %>
 
 <% content_for :navigation do %>
-	<li><%= link_to 'Back', @vehicle %></li>
+	<li><%= link_to 'Back', user_vehicle_path(@current_user, @vehicle) %></li>
 <% end %>
 
 <% if flash[:validation_errors] %>
@@ -14,7 +14,7 @@ Fill up could not be created because:<br />
 <% end %>
 
 
-<% form_tag upload_fill_ups_path(@vehicle), :multipart => true, :method => :put do %>
+<% form_tag upload_fill_ups_path(@current_user, @vehicle), :multipart => true, :method => :put do %>
 	<% field_set_tag "Import CSV File" do %>
 		<p>
 			You may select a Comma Separated Value (CSV) file which has one row per fill up,

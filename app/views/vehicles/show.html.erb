@@ -4,7 +4,7 @@
 	<li><%= link_to 'Edit', edit_user_vehicle_path(@current_user, @vehicle) %></li>
 	<li><%= link_to 'Add Fill Up', new_user_vehicle_fill_up_path(@current_user, @vehicle, :redirect_to => user_vehicle_path(@current_user, @vehicle)) %></li>  
 	<li><%= link_to 'Import Fill Ups', import_fill_ups_path(@current_user, @vehicle) %></li>
-	<li><%= link_to 'Back', user_vehicle_path(@current_user, @vehicle) %></li>
+	<li><%= link_to 'Back', user_vehicles_path(@current_user) %></li>
 <% end %>
 
 <div style="float:left">

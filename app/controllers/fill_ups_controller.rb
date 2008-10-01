@@ -1,4 +1,5 @@
 class FillUpsController < ApplicationController
+  before_filter :login_required
   before_filter :find_vehicle
   before_filter :find_fill_up, :except => [:index, :new, :create, :import, :upload]
   
@@ -102,7 +103,7 @@ class FillUpsController < ApplicationController
 
         flash[:success] = "Successfully imported #{ActionView::Helpers::TextHelper.pluralize(data.length, 'fill up', 'fill ups') }"
         respond_to do |format|
-          format.html { redirect_to(@vehicle) }
+          format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
           format.xml  { head :ok }
         end
 
