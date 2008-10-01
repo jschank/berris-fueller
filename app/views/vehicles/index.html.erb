@@ -21,10 +21,10 @@
     <td><%=h vehicle.model %></td>
     <td><%=h vehicle.year %></td>
     <td><%=h vehicle.current_miles %></td>
-    <td><%= link_to 'Show', user_vehicle(@current_user) %>&nbsp;
+    <td><%= link_to 'Show', user_vehicle_path(@current_user, vehicle) %>&nbsp;
     <%= link_to 'Edit', edit_user_vehicle_path(@current_user, vehicle) %>&nbsp;
-    <%= link_to 'Destroy', user_vehicle(@current_user), :confirm => 'Are you sure?', :method => :delete %>&nbsp;
-    <%= link_to 'Refuel', new_user_vehicle_fill_up_path(@current_user, vehicle, :redirect_to => user_vehicles_path) %></td>
+    <%= link_to 'Destroy', user_vehicle_path(@current_user, vehicle), :confirm => 'Are you sure?', :method => :delete %>&nbsp;
+    <%= link_to 'Refuel', new_user_vehicle_fill_up_path(@current_user, vehicle), :redirect_to => user_vehicle_path(@current_user, vehicle) %></td>
   </tr>
 <% end %>
 </table>

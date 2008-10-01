@@ -17,9 +17,9 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.xml
   def show
-    @mpg_chart = open_flash_chart_object(630, 400, mpg_chart_path(@vehicle))
-    @cpg_chart = open_flash_chart_object(630, 400, cpg_chart_path(@vehicle))
-    @cpm_chart = open_flash_chart_object(630, 400, cpm_chart_path(@vehicle))
+    @mpg_chart = open_flash_chart_object(630, 400, mpg_chart_path(@current_user, @vehicle))
+    @cpg_chart = open_flash_chart_object(630, 400, cpg_chart_path(@current_user, @vehicle))
+    @cpm_chart = open_flash_chart_object(630, 400, cpm_chart_path(@current_user, @vehicle))
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vehicle }
@@ -44,12 +44,12 @@ class VehiclesController < ApplicationController
   # POST /vehicles
   # POST /vehicles.xml
   def create
-    @vehicle = @user.vehicles.build params[:vehicle]
+    @vehicle = @current_user.vehicles.build params[:vehicle]
 
     respond_to do |format|
       if @vehicle.save
         flash[:success] = 'Vehicle was successfully created.'
-        format.html { redirect_to(@vehicle) }
+        format.html { redirect_to(user_vehicle_path(@current_user, @vehicle)) }
         format.xml  { render :xml => @vehicle, :status => :created, :location => @vehicle }
       else
         format.html { render :action => "new" }
@@ -66,7 +66,7 @@ class VehiclesController < ApplicationController
         first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0] unless @vehicle.fill_ups.size == 0
         first_fill_up.save unless first_fill_up.nil?
         flash[:success] = 'Vehicle was successfully updated.'
-        format.html { redirect_to(@vehicle) }
+        format.html { redirect_to(user_vehicle_path(@current_user, @vehicle)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,7 +81,7 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
 
     respond_to do |format|
-      format.html { redirect_to(vehicles_url) }
+      format.html { redirect_to(user_vehicles_path(@current_user)) }
       format.xml  { head :ok }
     end
   end

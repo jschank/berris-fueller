@@ -1,11 +1,10 @@
 <% title "Editing Vehicle" %>
 
 <% content_for :navigation do %>
-	<li><%= link_to 'Show', @vehicle %></li>
-	<li><%= link_to 'Back', vehicles_path %></li>
+	<li><%= link_to 'Back', user_vehicle_path(@current_user, @vehicle) %></li>
 <% end %>
 
-<% form_for @vehicle, :html => {:method => :put}  do |f| %>
+<% form_for  @vehicle, :url => user_vehicle_path(@current_user, @vehicle), :html => {:method => :put}   do |f| %>
 	<%= render :partial => 'form', :object => f %>
 <% end %>
 
