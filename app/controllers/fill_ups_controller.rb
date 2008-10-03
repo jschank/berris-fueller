@@ -44,10 +44,14 @@ class FillUpsController < ApplicationController
   def update
     old_reading = @fill_up.odometer
     respond_to do |format|
-      if @fill_up.update_attributes(params[:fill_up])
+      if (params[:commit] == 'Cancel')
+        @fill_up.reload
+        flash[:info] = "Edit of fill up was cancelled."
+        format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
+        format.xml  { head :ok }      
+      elsif @fill_up.update_attributes(params[:fill_up])
         next_fill_up = FillUp.next_fill_up(@vehicle, old_reading)
         next_fill_up.save unless next_fill_up.nil? || next_fill_up.id == @fill_up.id
-
         new_next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
         new_next_fill_up.save unless new_next_fill_up.nil? || new_next_fill_up.id == @fill_up.id
         flash[:success] = 'Fill up was successfully updated.'
@@ -65,7 +69,7 @@ class FillUpsController < ApplicationController
     @fill_up.destroy
     next_fill_up = FillUp.next_fill_up(@vehicle, @fill_up.odometer)
     next_fill_up.save unless next_fill_up.nil?
-    flash[:success] 'Fill up was removed.'
+    flash[:success] = 'Fill up was removed.'
     respond_to do |format|
       format.html { redirect_to user_vehicle_path(@current_user, @vehicle) }
       format.xml  { head :ok }

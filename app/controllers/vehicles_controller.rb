@@ -62,7 +62,12 @@ class VehiclesController < ApplicationController
   # PUT /vehicles/1.xml
   def update
     respond_to do |format|
-      if @vehicle.update_attributes(params[:vehicle])
+      if (params[:commit] == 'Cancel')
+        @vehicle.reload
+        flash[:info] = "Editing of #{@vehicle.name} was cancelled."
+        format.html { redirect_to(user_vehicle_path(@current_user, @vehicle)) }
+        format.xml  { head :ok }
+      elsif @vehicle.update_attributes(params[:vehicle])
         first_fill_up = @vehicle.fill_ups.sort{ |a,b| a.odometer <=> b.odometer}[0] unless @vehicle.fill_ups.size == 0
         first_fill_up.save unless first_fill_up.nil?
         flash[:success] = "#{@vehicle.name} was successfully updated."
