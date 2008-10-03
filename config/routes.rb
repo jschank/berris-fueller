@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.import_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/import', :controller => 'fill_ups', :action => 'import'
   map.upload_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/upload', :controller => 'fill_ups', :action => 'upload'
+  map.export_fill_ups '/users/:user_id/vehicles/:vehicle_id/fill_ups/export', :controller => 'fill_ups', :action => 'export'
 
   #  map.resources :users
   map.resources :users, :has_many => :vehicles, :member => { :suspend   => :put,

@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "fastercsv"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -84,8 +85,11 @@ module ActionView
 end
 
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
-  :default => '%m/%d/%Y',
-  :date_time12  => "%m/%d/%Y %I:%M%p",
-  :date_time24  => "%m/%d/%Y %H:%M"
+  :default            => "%m/%d/%Y",
+  :date_time12        => "%m/%d/%Y %I:%M%p",
+  :date_time24        => "%m/%d/%Y %H:%M",
+  :iso_8601_date_only => "%Y-%m-%d",
+  :iso_8601_time_only => "%H:%M:%S%z"
 )
+
 

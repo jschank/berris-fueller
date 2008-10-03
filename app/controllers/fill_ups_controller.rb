@@ -1,7 +1,7 @@
 class FillUpsController < ApplicationController
   before_filter :login_required
   before_filter :find_vehicle
-  before_filter :find_fill_up, :except => [:index, :new, :create, :import, :upload]
+  before_filter :find_fill_up, :except => [:index, :new, :create, :import, :export, :upload]
   
   class ValidationException < RuntimeError
     def initialize(errors, message)
@@ -77,6 +77,18 @@ class FillUpsController < ApplicationController
   end
   
   def import
+  end
+  
+  def export
+    csv_string = FasterCSV.generate do |csv| 
+      csv << ["Date","Grade","Brand","Gallons", "Odometer", "Cost_in_cents"]
+      @vehicle.fill_ups.each do |fillup|
+        csv << [fillup.date, fillup.grade, fillup.brand, fillup.gallons, fillup.odometer, fillup.cost.cents]
+      end
+    end
+    filename = "#{@vehicle.name}-FillUps-#{Date.today.to_s(:iso_8601_date_only)}.csv"
+    # flash[:info] = "Exported Fillups to #{filename}. Check your downloads folder."
+    send_data csv_string, :type => "text/csv", :filename => filename, :disposition => 'attachment'
   end
   
   def upload
