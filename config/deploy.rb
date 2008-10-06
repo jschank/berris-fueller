@@ -7,8 +7,8 @@ set :deploy_to, "/Volumes/Phoenix/RailsApps/#{application}"
 # ============
 # = Settings =
 # ============
-default_run_options[:pty] = true
-set :use_sudo, true
+#default_run_options[:pty] = true
+#set :use_sudo, true
 
 # ===========
 # = Servers =
