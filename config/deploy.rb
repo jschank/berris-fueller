@@ -9,6 +9,7 @@ set :deploy_to, "/Volumes/Phoenix/RailsApps/#{application}"
 # ============
 #default_run_options[:pty] = true
 #set :use_sudo, true
+set :use_sudo, false
 
 # ===========
 # = Servers =
@@ -24,6 +25,7 @@ role :db,  domain, :primary => true
 # = git =
 # =======
 set :scm, :git
+set :scm_command, "/usr/local/git/bin/git"
 set :repository,  "git@cooper.local:berris-fueller.git"
 set :scm_username, user
 set :runner, user
