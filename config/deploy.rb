@@ -39,23 +39,23 @@ set :rails_env, 'production'
 # =============
 # = Passenger =
 # =============
-namespace :deploy do
-  desc "Restarting mod_rails with restart.txt"
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
- 
-  [:start, :stop].each do |t|
-    desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do ; end
-  end
-end
+# namespace :deploy do
+#   desc "Restarting mod_rails with restart.txt"
+#   task :restart, :roles => :app, :except => { :no_release => true } do
+#     run "touch #{current_path}/tmp/restart.txt"
+#   end
+#  
+#   [:start, :stop].each do |t|
+#     desc "#{t} task is a no-op with mod_rails"
+#     task t, :roles => :app do ; end
+#   end
+# end
 
 # ===========
 # = Mongrel =
 # ===========
-# set :mongrel_servers, 3
-# set :mongrel_port, 8000
+set :mongrel_servers, 1
+set :mongrel_port, 8000
 
 # Or, at the top of this recipe:
 #   require 'mongrel_cluster/recipes'
