@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
 
-  require 'aasm'
+  # require 'aasm'
   include AuthenticatedSystem
 
   # See ActionController::RequestForgeryProtection for details
