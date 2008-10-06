@@ -113,6 +113,9 @@ tan
 	margin: 10px 0;
 	border: solid 3px;
 	display: none;
+	background-color: #ddd;
+	border-color: #888;
+	color: #888;
 }
 
 #flash_notice,
@@ -132,8 +135,8 @@ tan
 
 #flash_warning
 {	
-	background-color: #ffe5cc;
-	border-color: #fc9;
+	background-color: #fc9;
+	border-color: #bf854c;
 	color: #bf854c;	
 }
 
