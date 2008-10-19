@@ -20,3 +20,12 @@ config.action_view.cache_template_loading            = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+config.action_mailer.smtp_settings = 
+{
+  :address => "smtp.mac.com",
+  :port => 25,
+  :domain => "localhost",
+  :user_name => "jschank",
+  :password => "domo:arigato",
+  :authentication => :login
+}
