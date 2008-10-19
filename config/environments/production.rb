@@ -24,7 +24,7 @@ config.action_mailer.smtp_settings =
 {
   :address => "smtp.mac.com",
   :port => 25,
-  :domain => "schankopolis.com/berris-fueller",
+  :domain => "www.schankopolis.com/berris-fueller",
   :user_name => "jschank",
   :password => "domo:arigato",
   :authentication => :login
