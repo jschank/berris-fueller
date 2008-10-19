@@ -3,6 +3,9 @@ todo: get the url to be correct - http://www.schankopolis.com/berris-fueller
 todo: get the cap deploy:web:disable to work. - should show a maintenance page.
 todo: currently I did a cap deploy:stop, but at least it seems to be working when not stopped.
 
+Problems:
+fixme: logout redirects to www.schankopolis.com. Should put a link in there for berris-fueller.
+
 todo: Create a user profile edit page.
 
 todo: Add a bunch of fields to the user profile: Name ... ?
