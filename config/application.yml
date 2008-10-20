@@ -1,0 +1,6 @@
+development:
+  open_flash_chart_base: "/"
+  
+production:
+  open_flash_chart_base: "/berris-fueller"
+  

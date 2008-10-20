@@ -17,9 +17,9 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.xml
   def show
-    @mpg_chart = open_flash_chart_object(630, 400, mpg_chart_path(@current_user, @vehicle), true, "/berris-fueller/")
-    @cpg_chart = open_flash_chart_object(630, 400, cpg_chart_path(@current_user, @vehicle))
-    @cpm_chart = open_flash_chart_object(630, 400, cpm_chart_path(@current_user, @vehicle))
+    @mpg_chart = open_flash_chart_object(630, 400, mpg_chart_path(@current_user, @vehicle), true, AppConfig.open_flash_chart_base)
+    @cpg_chart = open_flash_chart_object(630, 400, cpg_chart_path(@current_user, @vehicle), true, AppConfig.open_flash_chart_base)
+    @cpm_chart = open_flash_chart_object(630, 400, cpm_chart_path(@current_user, @vehicle), true, AppConfig.open_flash_chart_base)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vehicle }
