@@ -1,9 +1,13 @@
 For capistrano deployment
 todo: get the cap deploy:web:disable to work. - should show a maintenance page.
 
-Problems:
-fixme: logout redirects to www.schankopolis.com. Should put a link in there for berris-fueller.
-fixme: data loads fine, but the charts are broken.
+todo: [update_ofc] update to the latest open flash charts from pullmonkey github
+
+todo: User page redirects incorrectly.
+
+todo: Add versioning display.
+
+todo: Add status with version, branch, date deployed, etc.
 
 todo: Create a user profile edit page.
 
