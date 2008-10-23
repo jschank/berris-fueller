@@ -1,4 +1,10 @@
 module OFCAjax
+  def periodically_call_function(function, options = {})
+     frequency = options[:frequency] || 10 # every ten seconds by default
+     code = "new PeriodicalExecuter(function() {#{function}}, #{frequency})"
+     ActionView::Base.new.javascript_tag(code)
+  end
+  
   def js_open_flash_chart_object(div_name, width, height, base="/")
     return %[
       <script type="text/javascript">
@@ -14,8 +20,8 @@ module OFCAjax
     return %[
       <script type="text/javascript">
         function load_#{data_name}() {
-          tmp = findSWF("#{div_name}");
-          x = tmp.load(Object.toJSON(data_#{data_name}));
+          tmp_#{div_name} = findSWF("#{div_name}");
+          x = tmp_#{div_name}.load(Object.toJSON(data_#{data_name}));
         }
         var data_#{data_name} = #{self.render};
       </script>
@@ -25,18 +31,34 @@ module OFCAjax
 
   def link_to_remote_ofc_load(link_text, div_name, url)
     fx_name = "#{link_text.gsub(" ","_")}_#{div_name.gsub(" ","_")}"
-    #    url = CGI::escape(url)
     return %[
       <script type="text/javascript">
         function reload_#{fx_name}() {
-          tmp = findSWF("#{div_name}");
+          tmp_#{div_name} = findSWF("#{div_name}");
           new Ajax.Request('#{url}', {
             method    : 'get',
-            onSuccess : function(obj) {tmp.load(obj.responseText);},
+            onSuccess : function(obj) {tmp_#{div_name}.load(obj.responseText);},
             onFailure : function(obj) {alert("Failed to request #{url}");}});
         }
       </script>
       #{ActionView::Base.new.link_to_function link_text, "reload_#{fx_name}()"}
+    ]
+  end
+  
+  def periodically_call_to_remote_ofc_load(div_name, url, options={})
+    fx_name = "#{div_name.gsub(" ","_")}"
+    frequency = options[:frequency] || 10 # every ten seconds by default
+    return %[
+      <script type="text/javascript">
+        function reload_#{fx_name}() {
+          tmp_#{div_name} = findSWF("#{div_name}");
+          new Ajax.Request('#{url}', {
+            method    : 'get',
+            onSuccess : function(obj) {tmp_#{div_name}.load(obj.responseText);},
+            onFailure : function(obj) {alert("Failed to request #{url}");}});
+        }
+      </script>
+      #{periodically_call_function("reload_#{fx_name}()", options)}
     ]
   end
 
