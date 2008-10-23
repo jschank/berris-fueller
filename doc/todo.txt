@@ -1,22 +1,30 @@
-For capistrano deployment
+==============
+= Deployment =
+==============
 todo: get the cap deploy:web:disable to work. - should show a maintenance page.
+todo: Add versioning display.
+todo: Add status page with version, branch, date deployed, etc.
 
-todo: [update_ofc] update to the latest open flash charts from pullmonkey github
-
+===================
+= Problems & Bugs =
+===================
 todo: User page redirects incorrectly.
 
-todo: Add versioning display.
-
-todo: Add status with version, branch, date deployed, etc.
-
+===================
+= User Management =
+===================
 todo: Create a user profile edit page.
-
+todo: Create a page to allow creation of new users without needing to go through the activation process.
+	Page: Should show all users
+	Page: Should allow user status to be directly changed. (active, inactive, suspended, awaiting activation, etc)
+	Page: Should allow users to be deleted - and all their data.
+	Page: Should be accessible only to admins
+	Page: Should allow re-sending of activation info to current e-mail
 todo: Add a bunch of fields to the user profile: Name ... ?
 
-todo: Add sass to create the Basic.css stylesheet using named constants for colors.
-
-todo: Add photo upload for vehicles
-
+====================
+= Cosmetic Changes =
+====================
 todo: Format the right hand part of the vehicle show to be prettier:
 	- Use rounded corners.
 	- Use a bezel or Hud like box
@@ -26,19 +34,20 @@ todo: Format the right hand part of the vehicle show to be prettier:
 	- Make the Total Miles look like an odometer display - USE the odometer.js in public/javascripts
 	- Add icons for Money, Fuel gallons, Fuel MPG
 	- Left half should be a picture region (even if it is a silhouette)
-
-todo: Add a savings calculation, using an Ajaxy form to enter the hypothetical MPG
-
+todo: Find icons and images for concepts, a gas pump for refuel link.
 todo: Use colors from the Visibone color palette when it arrives.
 
-todo: Deploy to schankopolis using capistrano.
-
+===================
+= General Changes =
+===================
+todo: Add sass to create the Basic.css stylesheet using named constants for colors.
+todo: Add photo upload for vehicles
+todo: Add a savings calculation, using an Ajaxy form to enter the hypothetical MPG
 todo: Use fillups controller :action => index, to produce the list of fillups on the show vehicle page.
-
-todo: Find icons and images for concepts, a gas pump for refuel link.
-
 todo: Add xml dump.
 
+=========================
+= Testing & Refactoring =
+=========================
 todo: RSpec - figure out where/how to spec behaviors added by controllers.
-
 todo: Refactor - Convert the script in the main layout to use RJS. 
