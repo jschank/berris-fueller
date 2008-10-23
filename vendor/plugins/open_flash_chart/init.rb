@@ -1,4 +1,5 @@
 # Include hook code here
+require 'digest/sha1'
 require 'ofc_ajax'
 require 'open_flash_chart_object'
 require 'open_flash_chart'
