@@ -29,7 +29,7 @@ set :scm_command, "/usr/local/git/bin/git"
 set :repository,  "git@cooper.local:berris-fueller.git"
 set :scm_username, user
 set :runner, user
-set :branch, "update_ofc"
+set :branch, "master"
 
 # =========
 # = Rails =
