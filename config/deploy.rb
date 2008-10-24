@@ -45,6 +45,16 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
  
+  # desc "Stop task is a deploy:web:disable with mod_rails"
+  # task :stop, :roles => :app do
+  #   deploy.web.disable
+  # end
+  # 
+  # desc "Start task is a deploy:web:enable with mod_rails"
+  # task :start, :roles => :app do
+  #   deploy.web.enable
+  # end
+
   [:start, :stop].each do |t|
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
