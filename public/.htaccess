@@ -1,5 +1,0 @@
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif)$
-RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
-RewriteCond %{SCRIPT_FILENAME} !maintenance.html
-RewriteRule ^.*$ %{DOCUMENT_ROOT}/system/maintenance.html [L]
