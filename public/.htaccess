@@ -1,6 +1,6 @@
 Options All MultiViews
 
-RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|ico)$
-RewriteCond %{DOCUMENT_ROOT}/berris-fueller/system/maintenance.html -f
+#RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|ico)$
+#RewriteCond %{DOCUMENT_ROOT}/berris-fueller/system/maintenance.html -f
 #RewriteCond %{SCRIPT_FILENAME} !maintenance.html
 RewriteRule ^.*$ %{DOCUMENT_ROOT}/berris-fueller/system/maintenance.html [L]
