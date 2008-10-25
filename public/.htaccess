@@ -1,4 +1,4 @@
-Options All MultiViews
+Options ExecCGI FollowSymLinks
 
 #RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|ico)$
 #RewriteCond %{DOCUMENT_ROOT}/berris-fueller/system/maintenance.html -f
