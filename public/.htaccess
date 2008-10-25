@@ -1,5 +1,3 @@
-flsj sdlkfs lkfjslkf sl
-
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|ico)$
 RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
