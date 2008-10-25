@@ -78,38 +78,6 @@ A:hover
 	margin: 0px;
 }
 
-#page_header p
-{
-	color: #477ca6;
-	text-align: left;
-	padding-left: 20px;
-	font-size: 12px;
-}
-
-#page_header A:link 
-{
-	color: #477ca6;
-	text-decoration: underline
-}
-
-#page_header A:visited 
-{
-	color: #477ca6;
-	text-decoration: underline
-}
-
-#page_header A:active 
-{
-	color: #477ca6;
-	text-decoration: underline
-}
-
-#page_header A:hover 
-{
-	color: #477ca6;
-	text-decoration: none
-}
-
 #menu_bar 
 {
 	height: 30px;

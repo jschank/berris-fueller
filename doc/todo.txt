@@ -1,7 +1,6 @@
 ==============
 = Deployment =
 ==============
-todo: get the cap deploy:web:disable to work. - should show a maintenance page.
 todo: Add versioning display.
 todo: Add status page with version, branch, date deployed, etc.
 

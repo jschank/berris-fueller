@@ -26,9 +26,8 @@
 			<div id='page_header'>
 				<h1>Berris Fueller</h1>
 				<h2><%= h yield(:title) %></h2>
-				<% if logged_in? %>
-				<p>Logged in as: <%= link_to_current_user :content_method => :login %>&nbsp;|&nbsp;<%= link_to "Log out", logout_path, { :title => "Log out" } %></p>
-				<% end %>
+				<%= version_info %>	
+				<%= render :partial => 'users/login_bar' %>
 			</div>
 
 			<div id='menu_bar'>
