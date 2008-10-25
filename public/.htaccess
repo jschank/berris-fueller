@@ -1,4 +1,4 @@
 RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif)$
-#RewriteCond %{DOCUMENT_ROOT}/berris\-fueller/system/maintenance.html -f
+RewriteCond %{DOCUMENT_ROOT}/berris\-fueller/system/maintenance.html -f
 RewriteCond %{SCRIPT_FILENAME} !maintenance.html
 RewriteRule ^.*$ %{DOCUMENT_ROOT}/system/maintenance.html [L]
