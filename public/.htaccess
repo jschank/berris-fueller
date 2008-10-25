@@ -1,8 +1,5 @@
-RailsBaseURI /berris-fueller
-RailsAllowModRewrite on
-
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif|ico)$
 RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
 RewriteCond %{SCRIPT_FILENAME} !maintenance.html
-RewriteRule ^/berris-fueller/*.*$ %{DOCUMENT_ROOT}/system/maintenance.html [L]
+RewriteRule ^/berris-fueller/*.*$ /berris-fueller/system/maintenance.html [L]
