@@ -96,7 +96,7 @@ private
   end
 
   def get_revcount_from_git
-    if File.exists?(".git")
+    if File.exists?("#{RAILS_ROOT}/.git")
       `git rev-list HEAD|wc -l`.strip
     end
   end

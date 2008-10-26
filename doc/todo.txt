@@ -1,7 +1,6 @@
 ==============
 = Deployment =
 ==============
-todo: Add versioning display.
 todo: Add status page with version, branch, date deployed, etc.
 
 ===================
