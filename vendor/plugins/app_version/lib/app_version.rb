@@ -1,5 +1,6 @@
 require 'yaml'
-
+require 'grit'
+include Grit
 
 class Version
   include Comparable
@@ -36,6 +37,8 @@ class Version
                  get_revcount_from_git
                when 'git-hash'
                  get_hash_from_git
+               when 'grit-revcount'
+                 get_revcount_from_grit
                else
                  args[:build] && int_value(args[:build])
                end
@@ -105,6 +108,16 @@ private
     if File.exists?(".git")
       `git show --pretty=format:%H|head -n1|cut -c 1-6`.strip
     end
+  end
+  
+  def get_revcount_from_grit
+    if File.exists?(".git")
+      repo = Repo.new(".")
+      repo.commit_count
+    else
+      "No Repo"
+    end
+    
   end
 
   def int_value(value)

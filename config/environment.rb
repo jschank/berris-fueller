@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "fastercsv"
   config.gem 'rubyist-aasm', :lib => 'aasm', :source => 'http://gems.github.com'
+  config.gem 'mojombo-grit', :lib => 'grit', :source => 'http://gems.github.com'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
