@@ -1,11 +1,10 @@
 require 'yaml'
-require 'grit'
-include Grit
+
 
 class Version
   include Comparable
 
-  attr_accessor :major, :minor, :patch, :milestone, :build
+  attr_accessor :major, :minor, :patch, :milestone, :build, :branch, :committer, :build_date
 
   # Creates a new instance of the Version class using information in the passed
   # Hash to construct the version number.
@@ -30,6 +29,18 @@ class Version
         @milestone = int_value(args[:milestone])
       end
 
+      if args[:build] && args[:build] != '' && int_value(args[:build]) >= 0
+        @build = int_value(args[:build])
+      end
+
+      @branch = args[:branch] unless args[:branch] == ''
+      @committer = args[:committer] unless args[:committer] == ''
+      
+      if args[:build_date] && args[:build_date] != ''
+        str = args[:build_date].to_s
+        @build_date = Date.parse(str)
+      end
+
       @build = case args[:build] 
                when 'svn'
                  get_build_from_subversion
@@ -37,8 +48,6 @@ class Version
                  get_revcount_from_git
                when 'git-hash'
                  get_hash_from_git
-               when 'grit-revcount'
-                 get_revcount_from_grit
                else
                  args[:build] && int_value(args[:build])
                end
@@ -47,15 +56,24 @@ class Version
 
   # Parses a version string to create an instance of the Version class.
   def self.parse(version)
-    m = version.match(/(\d+)\.(\d+)(?:\.(\d+))?(?:\sM(\d+))?(?:\s\((\d+)\))?/)
+    m = version.match(/(\d+)\.(\d+)(?:\.(\d+))?(?:\sM(\d+))?(?:\s\((\d+)\))?(?:\sof\s(\w+))?(?:\sby\s(\w+))?(?:\son\s(\S+))?/)
 
     raise ArgumentError.new("The version '#{version}' is unparsable") if m.nil?
 
-    Version.new :major => m[1],
-								:minor => m[2],
-								:patch => m[3],
-								:milestone => m[4],
-								:build => m[5]
+    version = Version.new :major => m[1],
+								:minor         => m[2],
+								:patch         => m[3],
+								:milestone     => m[4],
+								:build         => m[5],
+								:branch        => m[6],
+								:committer     => m[7]
+
+		if (m[8] && m[8] != '')
+		  date = Date.parse(m[8])
+		  version.build_date = date
+	  end
+    
+		return version						
   end
 
   # Loads the version information from a YAML file.
@@ -68,7 +86,7 @@ class Version
     #   return self.build <=> other.build
     # end
 
-    %w(build major minor patch milestone).each do |meth|
+    %w(build major minor patch milestone branch committer build_date).each do |meth|
       rhs = self.send(meth) || -1 
       lhs = other.send(meth) || -1
 
@@ -84,6 +102,9 @@ class Version
     str << ".#{patch}" unless patch.nil?
     str << " M#{milestone}" unless milestone.nil?
     str << " (#{build})" unless build.nil?
+    str << " of #{branch}" unless branch.nil?
+    str << " by #{committer}" unless committer.nil?
+    str << " on #{build_date}" unless build_date.nil?
 
     str
   end
@@ -109,20 +130,11 @@ private
       `git show --pretty=format:%H|head -n1|cut -c 1-6`.strip
     end
   end
-  
-  def get_revcount_from_grit
-    if File.exists?(".git")
-      repo = Repo.new(".")
-      repo.commit_count
-    else
-      "No Repo"
-    end
-    
-  end
 
   def int_value(value)
     value.to_i.abs
   end
+  
 end
 
 if defined?(RAILS_ROOT) && File.exists?("#{RAILS_ROOT}/config/version.yml")

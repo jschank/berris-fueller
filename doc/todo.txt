@@ -7,7 +7,6 @@ todo: Add status page with version, branch, date deployed, etc.
 = Problems & Bugs =
 ===================
 fixme: User page redirects incorrectly.
-fixme: It turns out that app_version cannot get the deployed rev count. Probably because the user running the server, does not have shell access. Look into using grit to directly access the .git repostory on the deployed machine.
 
 ===================
 = User Management =
