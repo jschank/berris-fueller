@@ -10,7 +10,7 @@ namespace :app_version do
     # result   = ERB.new(template).result(binding)
     # put result, "#{release_path}/config/version.yml"
     run "rm -f #{current_path}/config/version.yml"
-    run "cd #{current_path} && rake app:render"
+    run "rake -f #{current_path}/rakefile app:render"
   end
   after "deploy:symlink", "app_version:generate_version_info"
 
