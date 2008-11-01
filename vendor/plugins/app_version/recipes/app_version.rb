@@ -9,7 +9,7 @@ namespace :app_version do
     # template = File.read(RAILS_ROOT + "/lib/templates/version.yml.erb")
     # result   = ERB.new(template).result(binding)
     # put result, "#{release_path}/config/version.yml"
-    delete "#{current_path}/config/version.yml"
+    run "rm -f #{current_path}/config/version.yml"
     run "cd #{current_path};rake app:render"
   end
   after "deploy:symlink", "app_version:generate_version_info"
