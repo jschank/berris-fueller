@@ -6,7 +6,6 @@ namespace :app_version do
 
   desc "Generate version.yml from variables"
   task :generate_version_info, :roles => :app do
-    # RAILS_ROOT = File.join(File.dirname(__FILE__), "../..")
     template = File.read("lib/templates/version.yml.erb")
     result   = ERB.new(template).result(binding)
     put result, "#{release_path}/config/version.yml"
