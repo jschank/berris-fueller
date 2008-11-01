@@ -6,11 +6,9 @@ namespace :app_version do
 
   desc "Generate version.yml from variables"
   task :generate_version_info, :roles => :app do
-    # template = File.read(RAILS_ROOT + "/lib/templates/version.yml.erb")
-    # result   = ERB.new(template).result(binding)
-    # put result, "#{release_path}/config/version.yml"
-    run "rm -f #{current_path}/config/version.yml"
-    run "rake -f #{current_path}/rakefile app:render"
+    template = File.read(RAILS_ROOT + "/lib/templates/version.yml.erb")
+    result   = ERB.new(template).result(binding)
+    put result, "#{release_path}/config/version.yml"
   end
   after "deploy:symlink", "app_version:generate_version_info"
 
