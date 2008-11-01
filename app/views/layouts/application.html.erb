@@ -35,9 +35,12 @@
 					<ul id="navlist">
 					<!-- <li id="active"><a href="#" id="current">Item one</a></li> -->
 					<% if logged_in? %>
-						<li><%= link_to "My Vehicles", user_vehicles_path(@current_user) %></li>
+						<li><%= link_to "My Vehicles", root_path %></li>
 					<% else %>
 						<li><%= link_to "Sign up", signup_path %></li>
+					<% end %>
+					<% if user_is_admin? %>
+						<li><%= link_to "Users", users_path, :class => "admin" %></li>
 					<% end %>
 					<%= yield(:navigation) %>
 					</ul>

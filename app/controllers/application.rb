@@ -15,4 +15,12 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+
+protected
+  # Protect controllers with code like:
+  #   before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
+  def admin_required
+    current_user.respond_to?('is_admin') && current_user.send('is_admin')
+  end
+
 end

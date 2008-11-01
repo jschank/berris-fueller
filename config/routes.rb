@@ -19,6 +19,10 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
+  map.forgot_password '/forgot_password', :controller => "users", :action => "forgot_password"
+  map.reset_password '/reset_password/:code', :controller => "users", :action => "reset_password"
+  map.account '/account', :controller => "users", :action => "account"
+
   map.mpg_chart '/users/:user_id/vehicles/:vehicle_id/charts/mpg_chart', :controller => "charts", :action => "mpg_chart_code"
   map.cpg_chart '/users/:user_id/vehicles/:vehicle_id/charts/cpg_chart', :controller => "charts", :action => "cpg_chart_code"
   map.cpm_chart '/users/:user_id/vehicles/:vehicle_id/charts/cpm_chart', :controller => "charts", :action => "cpm_chart_code"

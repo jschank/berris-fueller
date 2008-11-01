@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Protect these actions behind an admin login
-  # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
+  before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge, :show]
   
 
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.all
   end
  
   def create
@@ -75,6 +79,67 @@ class UsersController < ApplicationController
   # There's no page here to update or destroy a user.  If you add those, be
   # smart -- make sure you check that the visitor is authorized to do so, that they
   # supply their old password along with a new one to update it, etc.
+
+  def account
+    if logged_in?
+      @user = current_user
+    else
+      flash[:alert] = 'You are not logged in - please login first'
+      render :controller => 'session', :action => 'new'
+    end
+  end
+
+  # action to perform when the user wants to change their password
+  def change_password
+    return unless request.post?
+    if User.authenticate(current_user.login, params[:old_password])
+      #      if (params[:password] == params[:password_confirmation])
+      current_user.password_confirmation = params[:password_confirmation]
+      current_user.password = params[:password]
+      if current_user.save
+        flash[:notice] = "Password updated successfully"
+        redirect_to account_url
+      else
+        flash[:alert] = "Password not changed"
+      end
+      #      else
+      #        flash[:alert] = "New password mismatch"
+      #        @old_password = params[:old_password]
+      #      end
+    else
+      flash[:alert] = "Old password incorrect"
+    end
+  end
+
+  # action to perform when the users clicks forgot_password
+  def forgot_password
+    return unless request.post?
+    if @user = User.find_by_email(params[:user][:email])
+      @user.forgot_password
+      @user.save
+      redirect_back_or_default('/')
+      flash[:notice] = "A password reset link has been sent to your email address: #{params[:user][:email]}"
+    else
+      flash[:alert] = "Could not find a user with that email address: #{params[:user][:email]}"
+    end
+  end
+
+  # action to perform when the user resets the password
+  def reset_password
+    @user = User.find_by_password_reset_code(params[:code])
+    return if @user unless params[:user]
+
+    if ((params[:user][:password] && params[:user][:password_confirmation]))
+      self.current_user = @user # for the next two lines to work
+      current_user.password_confirmation = params[:user][:password_confirmation]
+      current_user.password = params[:user][:password]
+      @user.reset_password
+      flash[:notice] = current_user.save ? "Password reset successfully" : "Unable to reset password"
+      redirect_back_or_default('/')
+    else
+      flash[:alert] = "Password mismatch"
+    end
+  end
 
 protected
   def find_user

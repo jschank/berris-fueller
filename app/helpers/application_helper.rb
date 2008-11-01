@@ -17,4 +17,12 @@ module ApplicationHelper
     content_tag :p, "Version: #{APP_VERSION.to_s}", {:id => 'version_info'}
   end
   
+  def user_logged_in?
+    session[:user_id]
+  end
+  
+  def user_is_admin?
+    session[:user_id] && (user = User.find(session[:user_id])) && user.is_admin    
+  end
+  
 end

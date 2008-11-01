@@ -7,7 +7,6 @@ todo: Add status page with version, branch, date deployed, etc.
 = Problems & Bugs =
 ===================
 fixme: User page redirects incorrectly.
-fixme: Version information broken - see todo in app_version
 fixme: I saw some funky error displays on forms.
 
 ===================
@@ -15,11 +14,11 @@ fixme: I saw some funky error displays on forms.
 ===================
 todo: Create a user profile edit page.
 todo: Create a page to allow creation of new users without needing to go through the activation process.
-	Page: Should show all users
 	Page: Should allow user status to be directly changed. (active, inactive, suspended, awaiting activation, etc)
 	Page: Should allow users to be deleted - and all their data.
-	Page: Should be accessible only to admins
 	Page: Should allow re-sending of activation info to current e-mail
+todo: Verify forgot password functionality
+todo: Verify change password functionality
 todo: Add a bunch of fields to the user profile: Name ... ?
 
 ====================
@@ -35,7 +34,7 @@ todo: Format the right hand part of the vehicle show to be prettier:
 	- Add icons for Money, Fuel gallons, Fuel MPG
 	- Left half should be a picture region (even if it is a silhouette)
 todo: Find icons and images for concepts, a gas pump for refuel link.
-todo: Use colors from the Visibone color palette when it arrives.
+todo: Use colors for flash from the Visibone color palette when it arrives.
 
 ===================
 = General Changes =
