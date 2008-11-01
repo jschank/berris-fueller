@@ -10,6 +10,6 @@ namespace :app_version do
     result   = ERB.new(template).result(binding)
     put result, "#{release_path}/config/version.yml"
   end
-  after "deploy:symlink", "app_version:generate_version_info"
+  after "deploy:update_code", "app_version:generate_version_info"
 
 end
