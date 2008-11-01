@@ -7,6 +7,8 @@ todo: Add status page with version, branch, date deployed, etc.
 = Problems & Bugs =
 ===================
 fixme: User page redirects incorrectly.
+fixme: Version information broken - see todo in app_version
+fixme: I saw some funky error displays on forms.
 
 ===================
 = User Management =
