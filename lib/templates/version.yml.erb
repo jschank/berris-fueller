@@ -8,8 +8,8 @@ minor:        0
 # patch:      1
 # milestone:  4
 build:      <%= `git rev-list HEAD|wc -l`.strip %>
-<%# branch:     <% branch %>
-committer:  <%= `git show -s --pretty=format:"%an"` %>
+branch:     <%= `git branch`.strip %>
+committer:  <%= `git show -s --pretty=format:"%cn"` %>
 build_date: <%= Date.today.to_s %>
 
 <%# nifty tricks (note these examples are commented out in erb syntax, to use them replace the # with =)				-%>
