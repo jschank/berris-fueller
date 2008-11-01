@@ -14,7 +14,7 @@ module ApplicationHelper
   end
   
   def version_info
-    content_tag :p, "Version: #{APP_VERSION.major.to_s}.#{APP_VERSION.minor.to_s}, Build: (#{APP_VERSION.build.to_s})", {:id => 'version_info'}
+    content_tag :p, "Version: #{APP_VERSION.to_s}", {:id => 'version_info'}
   end
   
 end
