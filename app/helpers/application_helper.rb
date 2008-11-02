@@ -22,7 +22,7 @@ module ApplicationHelper
   end
   
   def user_is_admin?
-    session[:user_id] && (user = User.find(session[:user_id])) && user.is_admin    
+    session[:user_id] && (user = User.find(session[:user_id])) && user.is_admin
   end
   
 end
