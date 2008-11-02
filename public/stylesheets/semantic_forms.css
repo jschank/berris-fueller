@@ -2,7 +2,7 @@
 
 form fieldset 
 {
-	width: 450px;
+	/*width: 450px;*/
 	font-size: 12pt;
 }
 
@@ -32,12 +32,13 @@ form input[type=text],
 form input[type=password],
 form textarea 
 {
-	width: 13em;
+	width: 16em;
 }
 
 form select 
 {
 	height: 1.5em;
+	font-size: 110%;
 }
 
 form input[type=submit],
@@ -80,7 +81,7 @@ form div.fieldWithErrors input, form div.fieldWithErrors select, form div.fieldW
 	line-height: 1.5em;
 }
 
-/* This is the style for the label side */
+/* This is the style for the whole section side */
 form div.check-box-field,
 form div.check-box-fields,
 form div.date-field,
@@ -95,14 +96,14 @@ form div.textarea-field,
 form div.time-zone-select-field,
 form div.submit-field 
 {
-	float: left;
-	clear: both;
-	margin: 0;
-	padding: 5px;
+	display:  inline;
 	border-bottom: 1px solid #cccccc;
-	/*font-size: 16pt;*/
+	width:  100%;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
 }
 
+/* this is the style for the field portion */
 form div.check-box-field div.input,
   form div.check-box-fields div.input,
   form div.date-field div.input,
@@ -117,13 +118,31 @@ form div.check-box-field div.input,
   form div.time-zone-select-field div.input,
   form div.submit-field div.input 
 {
-	float: left;
-	clear: right;
+	float: right;
+	display:  block;
 	text-align: left;
-	width: 14em;
 	padding-left: 5px;
 }
 
+/* this is the style for the field portion */
+form div.check-box-field div.input,
+  form div.check-box-fields div.input,
+  form div.date-field div.input,
+  form div.datetime-field div.input,
+  form div.file-field div.input,
+  form div.radio-field div.input,
+  form div.radio-fields div.input,
+  form div.select-field div.input,
+  form div.time-zone-select-field div.input,
+  form div.submit-field div.input 
+{
+	float: left;
+	display:  block;
+	text-align: left;
+	padding-left: 10px;
+}
+
+/* this is the style for the label portion */
 form div.check-box-field label,
   form div.check-box-fields label,
   form div.date-field label,
@@ -140,7 +159,7 @@ form div.check-box-field label,
 {
 	float: left;
 	display: block;
-	width: 12em;
+	width: 50%;
 	padding-right: 5px;
 	text-align: right;
 }
@@ -173,9 +192,10 @@ form div.submit-field
 	border: none;
 }
 
+/* this is the style for the box around both submit buttons */
 form div.submit-field div.input 
 {
-	margin-left: 14em;
+	float: right;
 }
 
 form div.check-box-fields div.input label,
@@ -183,7 +203,7 @@ form div.radio-fields div.input label
 {
 	clear: left;
 	width: auto;
-	font-size: 100%;
+	font-size: 110%;
 }
 
 form div.required 
