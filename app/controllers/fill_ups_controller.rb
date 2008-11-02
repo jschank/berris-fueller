@@ -2,6 +2,7 @@ class FillUpsController < ApplicationController
   before_filter :login_required
   before_filter :find_vehicle
   before_filter :find_fill_up, :except => [:index, :new, :create, :import, :export, :upload]
+  before_filter :convert_cost_to_cost_in_cents, :only => [:create, :update]
   
   class ValidationException < RuntimeError
     def initialize(errors, message)
@@ -135,6 +136,14 @@ class FillUpsController < ApplicationController
   end
   
   private
+
+  def convert_cost_to_cost_in_cents
+    if (params[:fill_up][:cost])
+      m = Money.new params[:fill_up][:cost]
+      params[:fill_up][:cost_in_cents] = m.cents
+      params[:fill_up].delete(:cost)
+    end
+  end
   
   def find_vehicle
     @vehicle = Vehicle.find params[:vehicle_id]
