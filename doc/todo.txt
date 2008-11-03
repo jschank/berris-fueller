@@ -8,6 +8,7 @@ todo: Add status page with version, branch, date deployed, etc.
 ===================
 fixme: User page redirects incorrectly.
 fixme: I saw some funky error displays on forms.
+fixme: could not follow "New Vehicles" link in the nav bar - said I didn't have permission to access root.
 
 ===================
 = User Management =
