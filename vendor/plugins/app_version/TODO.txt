@@ -6,6 +6,9 @@
 = Problems & Bugs =
 ===================
 fixme: Figure out how to pass the branch to the git revcount call in the erb file.
+fixme: Entering a fillup prior to the last one, fails to recalculate the last row.
+fixme: Need to adjust the scale for the CPM and CPG charts
+fixme: In production, some pages give 500 forbidden when trying to nav back into the site.
 
 ====================
 = Cosmetic Changes =
