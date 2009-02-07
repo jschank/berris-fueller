@@ -20,19 +20,19 @@
   </component>
   <component name="RailsViewFoldersManager">
     <USER_URLS url="file://$MODULE_DIR$/config" />
-    file://$MODULE_DIR$/config
+    file:///Users/jschank/Projects/Rails/berris-fueller/config
     <USER_URLS url="file://$MODULE_DIR$/vendor/plugins" />
-    file://$MODULE_DIR$/vendor/plugins
+    file:///Users/jschank/Projects/Rails/berris-fueller/vendor/plugins
     <USER_URLS url="file://$MODULE_DIR$/vendor/rails" />
-    file://$MODULE_DIR$/vendor/rails
+    file:///Users/jschank/Projects/Rails/berris-fueller/vendor/rails
     <USER_URLS url="file://$MODULE_DIR$/public/javascripts" />
-    file://$MODULE_DIR$/public/javascripts
+    file:///Users/jschank/Projects/Rails/berris-fueller/public/javascripts
     <USER_URLS url="file://$MODULE_DIR$/lib" />
-    file://$MODULE_DIR$/lib
+    file:///Users/jschank/Projects/Rails/berris-fueller/lib
     <USER_URLS url="file://$MODULE_DIR$/public/stylesheets" />
-    file://$MODULE_DIR$/public/stylesheets
+    file:///Users/jschank/Projects/Rails/berris-fueller/public/stylesheets
     <USER_URLS url="file://$MODULE_DIR$/spec" />
-    file://$MODULE_DIR$/spec
+    file:///Users/jschank/Projects/Rails/berris-fueller/spec
   </component>
 </module>
 
