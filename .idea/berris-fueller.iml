@@ -4,6 +4,7 @@
     <facet type="RailsFacetType" name="Ruby on Rails">
       <configuration>
         <RAILS_FACET_CONFIG_ID NAME="SHOULD_USE_RSPEC_PLUGIN" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_ADDED" VALUE="false" />
         <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$" />
       </configuration>
     </facet>
@@ -14,25 +15,34 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="[gem] rails (v2.2.2, /Library/Ruby/Gems/1.8/gems/rails-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activeresource (v2.2.2, /Library/Ruby/Gems/1.8/gems/activeresource-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] rake (v0.8.3, /Library/Ruby/Gems/1.8/gems/rake-0.8.3)" level="application" />
+    <orderEntry type="library" name="[gem] actionpack (v2.2.2, /Library/Ruby/Gems/1.8/gems/actionpack-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] actionmailer (v2.2.2, /Library/Ruby/Gems/1.8/gems/actionmailer-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activesupport (v2.2.2, /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] activerecord (v2.2.2, /Library/Ruby/Gems/1.8/gems/activerecord-2.2.2)" level="application" />
+    <orderEntry type="library" name="[gem] fastercsv (v1.4.0, /Library/Ruby/Gems/1.8/gems/fastercsv-1.4.0)" level="application" />
+    <orderEntry type="library" name="[gem] rubyist-aasm (v2.0.5, /Library/Ruby/Gems/1.8/gems/rubyist-aasm-2.0.5)" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <RMODULE_SETTINGS_STORAGE_ID NAME="NUMBER" VALUE="0" />
   </component>
   <component name="RailsViewFoldersManager">
     <USER_URLS url="file://$MODULE_DIR$/config" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/config
+    file://$MODULE_DIR$/config
     <USER_URLS url="file://$MODULE_DIR$/vendor/plugins" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/vendor/plugins
+    file://$MODULE_DIR$/vendor/plugins
     <USER_URLS url="file://$MODULE_DIR$/vendor/rails" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/vendor/rails
-    <USER_URLS url="file://$MODULE_DIR$/public/javascripts" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/public/javascripts
+    file://$MODULE_DIR$/vendor/rails
     <USER_URLS url="file://$MODULE_DIR$/lib" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/lib
+    file://$MODULE_DIR$/lib
+    <USER_URLS url="file://$MODULE_DIR$/public/javascripts" />
+    file://$MODULE_DIR$/public/javascripts
     <USER_URLS url="file://$MODULE_DIR$/public/stylesheets" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/public/stylesheets
+    file://$MODULE_DIR$/public/stylesheets
     <USER_URLS url="file://$MODULE_DIR$/spec" />
-    file:///Users/jschank/Projects/Rails/berris-fueller/spec
+    file://$MODULE_DIR$/spec
   </component>
 </module>
 
